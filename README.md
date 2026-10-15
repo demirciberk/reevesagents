@@ -1,8 +1,4 @@
-<p align="center"><a href="https://reevesagents.mertkayacs.com/"><img src="https://raw.githubusercontent.com/mertkayacs/reevesagents/master/docs/assets/reevesagents-banner.gif" width="800" alt="ReevesAgents: Run AI coding assistants together"></a></p>
-
-<h1 align="center">ReevesAgents</h1>
-
-<p align="center"><b>Run Claude Code, Codex, Kimi, OpenCode, Hermes and more in one local tmux workspace, and let one agent drive the rest through MCP.</b></p>
+<p align="center"><a href="https://reevesagents.mertkayacs.com/"><img src="assets/banner.webp" width="1050" alt="ReevesAgents is free and open source under the Apache-2.0 license"></a></p>
 
 <p align="center">
   <a href="https://github.com/mertkayacs/reevesagents"><img src="https://img.shields.io/github/stars/mertkayacs/reevesagents?style=flat&logo=github" alt="GitHub stars" /></a>
@@ -11,8 +7,11 @@
   <a href="https://www.npmjs.com/package/reevesagents"><img src="https://img.shields.io/npm/dt/reevesagents" alt="total npm downloads" /></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/node/v/reevesagents.svg" alt="node" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/npm/l/reevesagents.svg" alt="license" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/free%20and%20open%20source-006d77" alt="free and open source" /></a>
   <a href="https://github.com/mertkayacs/reevesagents/actions/workflows/test.yml"><img src="https://img.shields.io/github/actions/workflow/status/mertkayacs/reevesagents/test.yml?branch=master&label=CI" alt="CI" /></a>
 </p>
+
+ReevesAgents is free and open source under the Apache-2.0 license.
 
 <p align="center">
   <a href="https://reevesagents.mertkayacs.com/demo/"><b>Demo</b></a> ·
