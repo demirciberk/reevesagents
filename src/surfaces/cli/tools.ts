@@ -15,7 +15,10 @@ export function registerTools(program: Command): void {
         return
       }
       for (const tool of tools) {
-        console.log(`${(tool.installed ? 'ok' : '--').padEnd(3)} ${tool.id.padEnd(7)} ${tool.display_name.padEnd(18)} ${tool.state_means}: ${tool.state}`)
+        // A missing binary has no meaningful sign-in state; only installed
+        // tools get their probed state printed.
+        const stateText = tool.installed ? `${tool.state_means}: ${tool.state}` : 'not installed'
+        console.log(`${(tool.installed ? 'ok' : '--').padEnd(3)} ${tool.id.padEnd(7)} ${tool.display_name.padEnd(18)} ${stateText}`)
         console.log(`      ${tool.purpose}`)
         console.log(`      ${tool.example}`)
       }

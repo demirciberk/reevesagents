@@ -450,10 +450,22 @@ describe('cli parity', () => {
     it('prints a text catalogue with purpose and example lines', async () => {
       execFileSync.mockImplementation(() => { throw new Error('which: not found') })
       const { out } = await runCli(['tools'])
-      expect(out).toMatch(/--\s+pplx\s+Perplexity CLI\s+signed in: unknown/)
+      expect(out).toMatch(/--\s+pplx\s+Perplexity CLI\s+not installed/)
       expect(out).toMatch(/Web search and page snippets from Perplexity/)
       expect(out).toMatch(/ollama run gemma4:31b-cloud/)
-      expect(out).toMatch(/Ollama\s+reachable: no/)
+      expect(out).toMatch(/Ollama\s+not installed/)
+    })
+
+    it('prints the sign-in state only for installed tools', async () => {
+      execFileSync.mockImplementation((file: string, args: string[]) => {
+        if (file === 'which' && args[0] === 'hf') return Buffer.from('/usr/local/bin/hf\n')
+        throw new Error(`absent: ${file}`)
+      })
+
+      const { out } = await runCli(['tools'])
+      expect(out).toMatch(/ok\s+hf\s+Hugging Face CLI\s+signed in: no/)
+      expect(out).toMatch(/--\s+pplx\s+Perplexity CLI\s+not installed/)
+      expect(out).not.toMatch(/Perplexity CLI\s+signed in/)
     })
   })
 
