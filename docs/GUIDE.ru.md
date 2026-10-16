@@ -36,6 +36,17 @@
   Grok Build, Kiro CLI, Factory Droid, Qoder CLI, Warp, Junie CLI,
   GitHub Copilot CLI, Cursor CLI или Rovo Dev CLI.
 
+## Инструменты
+
+- Рядом с CLI для кода есть четыре инструмента: Perplexity CLI (поиск в вебе),
+  Google Colab CLI (среды CPU, GPU и TPU), Hugging Face CLI (модели и датасеты
+  на Hub) и Ollama (локальные и облачные модели). Агенты запускают их из
+  собственной оболочки.
+- `reevesagents tools` показывает, какие из них установлены и выполнен ли вход
+  (для Ollama: отвечает ли сервер), с назначением и примером команды для
+  каждого. Для скриптов добавьте `--json`.
+- Агент с подключённым MCP вызывает `list_tools` и получает тот же список.
+
 ## Установка и проверка
 
 - Установите через Homebrew: `brew install mertkayacs/reevesagents/reevesagents`

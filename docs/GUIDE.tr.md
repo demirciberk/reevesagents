@@ -19,6 +19,12 @@ Bu rehber sizi temiz bir kurulumdan alıp bir agent'ın diğerlerini sizin yerin
 - tmux 3.0 veya daha yenisi.
 - Kurulu ve giriş yapılmış en az bir sağlayıcı CLI'si: Claude Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen, Aider, Gemini CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code, Mistral Vibe, Grok Build, Kiro CLI, Factory Droid, Qoder CLI, Warp, Junie CLI, GitHub Copilot CLI, Cursor CLI veya Rovo Dev CLI.
 
+## Araçlar
+
+- Kodlama CLI'lerinin yanında dört araç bulunur: Perplexity CLI (web araması), Google Colab CLI (CPU, GPU ve TPU çalışma ortamları), Hugging Face CLI (Hub üzerindeki modeller ve veri kümeleri) ve Ollama (yerel ve bulut modelleri). Agent'lar bunları kendi kabuklarından çalıştırır.
+- `reevesagents tools` hangilerinin kurulu olduğunu ve giriş yapıp yapmadığınızı (Ollama için: sunucunun yanıt verip vermediğini) her biri için amaç ve örnek komutla gösterir. Script'ler için `--json` ekleyin.
+- MCP'si bağlı bir agent aynı listeyi almak için `list_tools` çağırır.
+
 ## Kurulum ve kontrol
 
 - Homebrew ile kurun: `brew install mertkayacs/reevesagents/reevesagents`, ya da pnpm gibi bir Node paket yöneticisiyle global olarak: `pnpm add -g reevesagents`

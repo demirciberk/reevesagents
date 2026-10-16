@@ -76,6 +76,19 @@ Reinicia esa CLI después de `attach` para que cargue las herramientas del MCP.
 ReevesAgents es local por diseño. El estado es JSON plano bajo `~/.reeves`, y las
 CLIs que arranca son las mismas que ya usas a mano.
 
+## Herramientas
+
+Cuatro herramientas acompañan a las CLIs de programación. Perplexity CLI busca
+en la web, Google Colab CLI ejecuta scripts y notebooks en runtimes de CPU, GPU
+y TPU, Hugging Face CLI descarga y sube modelos y conjuntos de datos y lanza
+jobs en el Hub, y Ollama ejecuta modelos locales o en la nube desde la terminal.
+Los agentes las llaman desde su propia shell.
+
+`reevesagents tools` lista las cuatro con su propósito, un comando de ejemplo y
+su estado: instalada y con sesión iniciada (en Ollama: accesible). Añade
+`--json` para scripts. Un agente con el MCP adjunto obtiene la misma lista con
+`list_tools`.
+
 <a id="install"></a>
 <details>
 <summary><strong>Instalación</strong></summary>
@@ -155,6 +168,7 @@ Sin argumentos, se abre la TUI.
 | `doctor` | Comprueba Node, tmux, el estado y las CLIs de proveedor. |
 | `web` | Inicia la Web UI, que solo escucha en loopback. |
 | `providers` | Lista los ids de proveedor, alias, modelos y disponibilidad. |
+| `tools` | Lista Perplexity, Google Colab, Hugging Face y Ollama con su propósito, un ejemplo y su estado de instalación y de sesión. |
 | `approvals` | Lista las solicitudes de aprobación pendientes. |
 | `approve` / `deny` | Resuelve una solicitud de aprobación. |
 | `hosts` | Muestra qué CLIs anfitrionas tienen ReevesAgents adjunto. |

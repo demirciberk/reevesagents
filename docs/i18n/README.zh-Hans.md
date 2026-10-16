@@ -67,6 +67,12 @@ reevesagents hosts
 
 ReevesAgents 从设计上就是纯本地的。状态是 `~/.reeves` 下的纯 JSON，它启动的 CLI 也正是你平时亲手使用的那些。
 
+## 工具
+
+除了编码 CLI，ReevesAgents 还认识四个工具。Perplexity CLI 用于网页搜索，Google Colab CLI 在 CPU、GPU 和 TPU 运行时上运行脚本与笔记本，Hugging Face CLI 在 Hub 上下载、上传模型和数据集并运行作业，Ollama 在终端里运行本地或云端模型。智能体在自己的 shell 中调用它们。
+
+`reevesagents tools` 会列出这四个工具，并给出用途、示例命令以及各自的状态：是否已安装、是否已登录（Ollama 则是服务是否可达）。脚本场景可加 `--json`。已附加 MCP 的智能体通过 `list_tools` 获得同一份列表。
+
 <a id="install"></a>
 <details>
 <summary><strong>安装</strong></summary>
@@ -144,6 +150,7 @@ TUI 和 Web UI 驱动的是同一批本地运行：
 | `doctor` | 检查 Node、tmux、状态和提供方 CLI。 |
 | `web` | 启动只监听回环地址的 Web UI。 |
 | `providers` | 列出提供方 id、别名、模型以及是否可用。 |
+| `tools` | 列出 Perplexity、Google Colab、Hugging Face 和 Ollama，附用途、示例以及安装和登录状态。 |
 | `approvals` | 列出待处理的审批请求。 |
 | `approve` / `deny` | 处理一条审批请求。 |
 | `hosts` | 显示哪些宿主 CLI 已附加 ReevesAgents。 |

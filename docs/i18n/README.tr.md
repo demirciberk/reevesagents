@@ -77,6 +77,18 @@ MCP araçlarını yüklemesi için `attach` sonrasında o CLI'yi yeniden başlat
 ReevesAgents baştan yerel çalışmak üzere tasarlandı. Durum `~/.reeves` altında düz JSON
 olarak tutulur ve başlattığı CLI'ler, zaten elle kullandığınız CLI'lerin aynısıdır.
 
+## Araçlar
+
+Kodlama CLI'lerinin yanında dört araç bulunur. Perplexity CLI web'de arama
+yapar, Google Colab CLI script'leri ve notebook'ları CPU, GPU ve TPU çalışma
+ortamlarında çalıştırır, Hugging Face CLI modelleri ve veri kümelerini indirir,
+yükler ve Hub üzerinde iş çalıştırır, Ollama ise yerel ya da bulut modellerini
+terminalden çalıştırır. Agent'lar bunları kendi kabuklarından çağırır.
+
+`reevesagents tools` bu dördünü amacı, örnek bir komutu ve durumuyla listeler:
+kurulu mu, giriş yapılmış mı (Ollama için: erişilebilir mi). Script'ler için
+`--json` ekleyin. MCP'si bağlı bir agent aynı listeyi `list_tools` ile alır.
+
 <a id="install"></a>
 <details>
 <summary><strong>Kurulum</strong></summary>
@@ -155,6 +167,7 @@ Argümansız çalıştırıldığında TUI açılır.
 | `doctor` | Node, tmux, durum dizini ve sağlayıcı CLI'lerini kontrol eder. |
 | `web` | Yalnızca loopback üzerinde dinleyen Web UI'yi başlatır. |
 | `providers` | Sağlayıcı id'lerini, takma adları, modelleri ve kullanılabilirliği listeler. |
+| `tools` | Perplexity, Google Colab, Hugging Face ve Ollama'yı amacı, örneği, kurulum ve giriş durumuyla listeler. |
 | `approvals` | Bekleyen onay isteklerini listeler. |
 | `approve` / `deny` | Bir onay isteğini sonuçlandırır. |
 | `hosts` | ReevesAgents'ın hangi host CLI'lere bağlı olduğunu gösterir. |

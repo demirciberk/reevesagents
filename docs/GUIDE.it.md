@@ -19,6 +19,12 @@ Questa guida ti porta da un'installazione pulita fino al punto in cui è un agen
 - tmux 3.0 o più recente.
 - Almeno una CLI di provider installata e loggata: Claude Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen, Aider, Gemini CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code, Mistral Vibe, Grok Build, Kiro CLI, Factory Droid, Qoder CLI, Warp, Junie CLI, GitHub Copilot CLI, Cursor CLI o Rovo Dev CLI.
 
+## Strumenti
+
+- Quattro strumenti affiancano le CLI di coding: Perplexity CLI (ricerca web), Google Colab CLI (runtime CPU, GPU e TPU), Hugging Face CLI (modelli e dataset sull'Hub) e Ollama (modelli locali e cloud). Gli agenti li eseguono dalla propria shell.
+- `reevesagents tools` mostra quali sono installati e se hai effettuato l'accesso (per Ollama: se il server risponde), con scopo e comando di esempio per ciascuno. Aggiungi `--json` per gli script.
+- Un agente con l'MCP collegato chiama `list_tools` per ottenere la stessa lista.
+
 ## Installa e verifica
 
 - Installalo con Homebrew: `brew install mertkayacs/reevesagents/reevesagents`, oppure globalmente con un gestore di pacchetti Node come pnpm: `pnpm add -g reevesagents`

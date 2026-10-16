@@ -35,6 +35,17 @@ that lives in the [online user guide](https://reevesagents.mertkayacs.com/docs/)
   Factory Droid, Qoder CLI, Warp, Junie CLI, GitHub Copilot CLI, Cursor CLI, or
   Rovo Dev CLI.
 
+## Tools
+
+- Four tools sit next to the coding CLIs: Perplexity CLI (web search),
+  Google Colab CLI (CPU, GPU and TPU runtimes), Hugging Face CLI (models and
+  datasets on the Hub) and Ollama (local and cloud models). Agents run them from
+  their own shell.
+- `reevesagents tools` shows which of them are installed and whether you are
+  signed in (for Ollama: whether the server answers), with a purpose and an
+  example command for each. Add `--json` for scripts.
+- An agent with the MCP attached calls `list_tools` to get the same list.
+
 ## Install and check
 
 - Install it with Homebrew: `brew install mertkayacs/reevesagents/reevesagents`,

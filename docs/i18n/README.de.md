@@ -77,6 +77,18 @@ ReevesAgents ist bewusst lokal gebaut. Der State liegt als reines JSON unter
 `~/.reeves`, und die CLIs, die es startet, sind dieselben, die du sonst von Hand
 benutzt.
 
+## Tools
+
+Neben den Coding-CLIs kennt ReevesAgents vier Tools. Perplexity CLI durchsucht
+das Web, Google Colab CLI führt Skripte und Notebooks auf CPU-, GPU- und
+TPU-Runtimes aus, Hugging Face CLI lädt Modelle und Datensätze vom Hub herunter
+oder dorthin hoch und startet dort Jobs, und Ollama betreibt lokale oder
+Cloud-Modelle im Terminal. Die Agenten rufen sie aus ihrer eigenen Shell auf.
+
+`reevesagents tools` listet die vier mit Zweck, Beispielbefehl und Status auf:
+installiert und angemeldet (bei Ollama: erreichbar). Mit `--json` für Skripte.
+Ein Agent mit angehängtem MCP bekommt dieselbe Liste über `list_tools`.
+
 <a id="install"></a>
 <details>
 <summary><strong>Installation</strong></summary>
@@ -156,6 +168,7 @@ Ohne Argumente startet die TUI.
 | `doctor` | Prüft Node, tmux, State und Anbieter-CLIs. |
 | `web` | Startet die Web UI, die nur auf Loopback lauscht. |
 | `providers` | Listet Anbieter-IDs, Aliasse, Modelle und Verfügbarkeit auf. |
+| `tools` | Listet Perplexity, Google Colab, Hugging Face und Ollama mit Zweck, Beispiel sowie Installations- und Anmeldestatus auf. |
 | `approvals` | Listet offene Freigabeanfragen auf. |
 | `approve` / `deny` | Entscheidet eine Freigabeanfrage. |
 | `hosts` | Zeigt, an welchen Host-CLIs ReevesAgents hängt. |

@@ -19,6 +19,12 @@
 - tmux 3.0 أو أحدث.
 - أداة CLI واحدة على الأقل من مزوّد، مثبّتة وموثّقة: Claude Code أو Codex أو OpenCode أو Hermes أو Kimi أو DeepSeek أو Pi أو Qwen أو Aider أو Gemini CLI أو Cline CLI أو Crush أو Goose أو Kilo Code أو Letta Code أو Mistral Vibe أو Grok Build أو Kiro CLI أو Factory Droid أو Qoder CLI أو Warp أو Junie CLI أو GitHub Copilot CLI أو Cursor CLI أو Rovo Dev CLI.
 
+## الأدوات
+
+- تعمل أربع أدوات إلى جانب أدوات CLI للبرمجة: Perplexity CLI (بحث الويب) وGoogle Colab CLI (بيئات CPU وGPU وTPU) وHugging Face CLI (النماذج ومجموعات البيانات على Hub) وOllama (نماذج محلية وسحابية). يشغّلها الوكلاء من سطر الأوامر الخاص بهم.
+- يعرض `reevesagents tools` أيها مثبّت وهل سجّلت الدخول (وفي Ollama: هل يستجيب الخادم)، مع غرض كل أداة وأمر مثال. أضف `--json` للسكربتات.
+- الوكيل الذي رُبط به MCP يستدعي `list_tools` ليحصل على القائمة نفسها.
+
 ## التثبيت والتحقق
 
 - ثبّته عبر Homebrew: `brew install mertkayacs/reevesagents/reevesagents`، أو تثبيتًا عامًا بمدير حزم Node مثل pnpm: `pnpm add -g reevesagents`

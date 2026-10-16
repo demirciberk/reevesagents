@@ -19,6 +19,12 @@
 - tmux 3.0 或更新版本。
 - 至少一个已安装并登录的提供方 CLI：Claude Code、Codex、OpenCode、Hermes、Kimi、DeepSeek、Pi、Qwen、Aider、Gemini CLI、Cline CLI、Crush、Goose、Kilo Code、Letta Code、Mistral Vibe、Grok Build、Kiro CLI、Factory Droid、Qoder CLI、Warp、Junie CLI、GitHub Copilot CLI、Cursor CLI 或 Rovo Dev CLI。
 
+## 工具
+
+- 编码 CLI 之外还有四个工具：Perplexity CLI（网页搜索）、Google Colab CLI（CPU、GPU 和 TPU 运行时）、Hugging Face CLI（Hub 上的模型和数据集）以及 Ollama（本地和云端模型）。智能体在自己的 shell 中运行它们。
+- `reevesagents tools` 显示其中哪些已安装、你是否已登录（Ollama 则是服务是否响应），并为每个工具附上用途和示例命令。脚本场景可加 `--json`。
+- 已附加 MCP 的智能体调用 `list_tools` 就能得到同一份列表。
+
 ## 安装和检查
 
 - 用 Homebrew 安装：`brew install mertkayacs/reevesagents/reevesagents`，或者用 pnpm 这类 Node 包管理器全局安装：`pnpm add -g reevesagents`
