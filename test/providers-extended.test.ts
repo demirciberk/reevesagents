@@ -205,4 +205,144 @@ describe('buildCommand: extended providers', () => {
       expect(cmd).toEqual(['letta', '--new', '--permission-mode', 'unrestricted'])
     })
   })
+
+  describe('vibe', () => {
+    it('launch command starts with vibe', () => {
+      expect(buildCommand({ provider: 'vibe', permissions: 'ask', model: '' })).toEqual(['vibe'])
+    })
+
+    it('skip permissions uses --auto-approve', () => {
+      expect(buildCommand({ provider: 'vibe', permissions: 'skip', model: '' })).toEqual(['vibe', '--auto-approve'])
+    })
+
+    it('has no launch model flag, so the model knob adds nothing', () => {
+      expect(buildCommand({ provider: 'vibe', permissions: 'ask', model: 'mistral-medium-3.5' })).toEqual(buildCommand({ provider: 'vibe', permissions: 'ask', model: '' }))
+    })
+  })
+
+  describe('grok', () => {
+    it('launch command starts with grok', () => {
+      expect(buildCommand({ provider: 'grok', permissions: 'ask', model: '' })).toEqual(['grok'])
+    })
+
+    it('skip permissions uses --always-approve', () => {
+      expect(buildCommand({ provider: 'grok', permissions: 'skip', model: '' })).toEqual(['grok', '--always-approve'])
+    })
+
+    it('includes --model when set', () => {
+      expect(buildCommand({ provider: 'grok', permissions: 'ask', model: 'grok-4.6' })).toEqual(['grok', '--model', 'grok-4.6'])
+    })
+  })
+
+  describe('kiro', () => {
+    it('launch command starts with kiro-cli', () => {
+      expect(buildCommand({ provider: 'kiro', permissions: 'ask', model: '' })).toEqual(['kiro-cli', 'chat'])
+    })
+
+    it('skip permissions uses --trust-all-tools', () => {
+      expect(buildCommand({ provider: 'kiro', permissions: 'skip', model: '' })).toEqual(['kiro-cli', 'chat', '--trust-all-tools'])
+    })
+
+    it('includes --model when set', () => {
+      expect(buildCommand({ provider: 'kiro', permissions: 'ask', model: 'claude-sonnet-4.6' })).toEqual(['kiro-cli', 'chat', '--model', 'claude-sonnet-4.6'])
+    })
+  })
+
+  describe('droid', () => {
+    it('launch command starts with droid', () => {
+      expect(buildCommand({ provider: 'droid', permissions: 'ask', model: '' })).toEqual(['droid'])
+    })
+
+    it('skip permissions uses --skip-permissions-unsafe', () => {
+      expect(buildCommand({ provider: 'droid', permissions: 'skip', model: '' })).toEqual(['droid', '--skip-permissions-unsafe'])
+    })
+
+    it('includes --model when set', () => {
+      expect(buildCommand({ provider: 'droid', permissions: 'ask', model: 'gpt-6-sol' })).toEqual(['droid', '--model', 'gpt-6-sol'])
+    })
+  })
+
+  describe('qoder', () => {
+    it('launch command starts with qodercli', () => {
+      expect(buildCommand({ provider: 'qoder', permissions: 'ask', model: '' })).toEqual(['qodercli'])
+    })
+
+    it('skip permissions uses --dangerously-skip-permissions', () => {
+      expect(buildCommand({ provider: 'qoder', permissions: 'skip', model: '' })).toEqual(['qodercli', '--dangerously-skip-permissions'])
+    })
+
+    it('includes --model when set', () => {
+      expect(buildCommand({ provider: 'qoder', permissions: 'ask', model: 'auto' })).toEqual(['qodercli', '--model', 'auto'])
+    })
+  })
+
+  describe('warp', () => {
+    it('launch command starts with warp', () => {
+      expect(buildCommand({ provider: 'warp', permissions: 'ask', model: '' })).toEqual(['warp'])
+    })
+
+    it('skip permissions uses --auto-approve', () => {
+      expect(buildCommand({ provider: 'warp', permissions: 'skip', model: '' })).toEqual(['warp', '--auto-approve'])
+    })
+
+    it('has no launch model flag, so the model knob adds nothing', () => {
+      expect(buildCommand({ provider: 'warp', permissions: 'ask', model: 'gpt-5.4' })).toEqual(buildCommand({ provider: 'warp', permissions: 'ask', model: '' }))
+    })
+  })
+
+  describe('junie', () => {
+    it('launch command starts with junie', () => {
+      expect(buildCommand({ provider: 'junie', permissions: 'ask', model: '' })).toEqual(['junie'])
+    })
+
+    it('skip permissions uses --brave', () => {
+      expect(buildCommand({ provider: 'junie', permissions: 'skip', model: '' })).toEqual(['junie', '--brave'])
+    })
+
+    it('includes --model when set', () => {
+      expect(buildCommand({ provider: 'junie', permissions: 'ask', model: 'sonnet' })).toEqual(['junie', '--model', 'sonnet'])
+    })
+  })
+
+  describe('copilot', () => {
+    it('launch command starts with copilot', () => {
+      expect(buildCommand({ provider: 'copilot', permissions: 'ask', model: '' })).toEqual(['copilot'])
+    })
+
+    it('skip permissions uses --allow-all', () => {
+      expect(buildCommand({ provider: 'copilot', permissions: 'skip', model: '' })).toEqual(['copilot', '--allow-all'])
+    })
+
+    it('includes --model when set', () => {
+      expect(buildCommand({ provider: 'copilot', permissions: 'ask', model: 'auto' })).toEqual(['copilot', '--model', 'auto'])
+    })
+  })
+
+  describe('cursor', () => {
+    it('launch command starts with cursor-agent', () => {
+      expect(buildCommand({ provider: 'cursor', permissions: 'ask', model: '' })).toEqual(['cursor-agent'])
+    })
+
+    it('skip permissions uses --force', () => {
+      expect(buildCommand({ provider: 'cursor', permissions: 'skip', model: '' })).toEqual(['cursor-agent', '--force'])
+    })
+
+    it('includes --model when set', () => {
+      expect(buildCommand({ provider: 'cursor', permissions: 'ask', model: 'gpt-5' })).toEqual(['cursor-agent', '--model', 'gpt-5'])
+    })
+  })
+
+  describe('rovo', () => {
+    it('launch command starts with acli', () => {
+      expect(buildCommand({ provider: 'rovo', permissions: 'ask', model: '' })).toEqual(['acli', 'rovodev', 'run'])
+    })
+
+    it('skip permissions uses --yolo', () => {
+      expect(buildCommand({ provider: 'rovo', permissions: 'skip', model: '' })).toEqual(['acli', 'rovodev', 'run', '--yolo'])
+    })
+
+    it('has no launch model flag, so the model knob adds nothing', () => {
+      expect(buildCommand({ provider: 'rovo', permissions: 'ask', model: 'auto' })).toEqual(buildCommand({ provider: 'rovo', permissions: 'ask', model: '' }))
+    })
+  })
 })

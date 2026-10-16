@@ -34,6 +34,16 @@ describe('model catalog', () => {
     expect(MODEL_CATALOG.goose.models).toContain('claude-sonnet-4-6')
     expect(MODEL_CATALOG.kilo.models).toContain('kilo/~anthropic/claude-sonnet-latest')
     expect(MODEL_CATALOG.letta.models).toContain('zai-org/GLM-5.3-max')
+    expect(MODEL_CATALOG.vibe.models).toEqual(['mistral-medium-3.5', 'mistral-vibe-cli-latest', 'glm-5.3'])
+    expect(MODEL_CATALOG.grok.models).toEqual(['grok-4.6', 'grok-4.5', 'grok-4.7'])
+    expect(MODEL_CATALOG.kiro.models).toEqual(['claude-sonnet-4.6', 'claude-opus-4.7', 'claude-opus-4.6'])
+    expect(MODEL_CATALOG.droid.models).toEqual(['gpt-6-sol', 'claude-opus-5', 'gemini-3.1-pro-preview'])
+    expect(MODEL_CATALOG.qoder.models).toEqual(['auto', 'performance', 'lite'])
+    expect(MODEL_CATALOG.warp.models).toContain('gpt-5.4')
+    expect(MODEL_CATALOG.junie.models).toEqual(['sonnet', 'opus', 'gpt-sol'])
+    expect(MODEL_CATALOG.copilot.models).toEqual(['auto', 'gpt-5.4', 'claude-opus-4.8'])
+    expect(MODEL_CATALOG.cursor.models).toEqual(['gpt-5', 'sonnet-4-thinking', 'claude-opus-4-8'])
+    expect(MODEL_CATALOG.rovo.models).toEqual(['auto'])
   })
 
   it('renders an empty model as the provider default label', () => {

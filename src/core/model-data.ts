@@ -114,3 +114,71 @@ export const LETTA_MODELS = [
   'moonshotai/Kimi-K2-Instruct',
   'Qwen/Qwen3-Coder-480B-A35B-Instruct',
 ] as const
+
+export const VIBE_MODEL_SOURCE = 'curated Mistral Vibe model ids'
+export const VIBE_MODELS = [
+  'mistral-medium-3.5',
+  'mistral-vibe-cli-latest',
+  'glm-5.3',
+] as const
+
+export const GROK_MODEL_SOURCE = 'curated Grok Build model ids'
+export const GROK_MODELS = [
+  'grok-4.6',
+  'grok-4.5',
+  'grok-4.7',
+] as const
+
+export const KIRO_MODEL_SOURCE = 'curated Kiro CLI model ids'
+export const KIRO_MODELS = [
+  'claude-sonnet-4.6',
+  'claude-opus-4.7',
+  'claude-opus-4.6',
+] as const
+
+export const DROID_MODEL_SOURCE = 'curated Factory Droid model ids'
+export const DROID_MODELS = [
+  'gpt-6-sol',
+  'claude-opus-5',
+  'gemini-3.1-pro-preview',
+] as const
+
+export const QODER_MODEL_SOURCE = 'curated Qoder CLI model ids'
+export const QODER_MODELS = [
+  'auto',
+  'performance',
+  'lite',
+] as const
+
+export const WARP_MODEL_SOURCE = 'curated Warp model ids'
+export const WARP_MODELS = [
+  'claude-sonnet-4-6',
+  'gpt-5.4',
+  'gemini-2.5-pro',
+] as const
+
+export const JUNIE_MODEL_SOURCE = 'curated Junie CLI model ids'
+export const JUNIE_MODELS = [
+  'sonnet',
+  'opus',
+  'gpt-sol',
+] as const
+
+export const COPILOT_MODEL_SOURCE = 'curated GitHub Copilot CLI model ids'
+export const COPILOT_MODELS = [
+  'auto',
+  'gpt-5.4',
+  'claude-opus-4.8',
+] as const
+
+export const CURSOR_MODEL_SOURCE = 'curated Cursor CLI model ids'
+export const CURSOR_MODELS = [
+  'gpt-5',
+  'sonnet-4-thinking',
+  'claude-opus-4-8',
+] as const
+
+export const ROVO_MODEL_SOURCE = 'curated Rovo Dev CLI model ids'
+export const ROVO_MODELS = [
+  'auto',
+] as const

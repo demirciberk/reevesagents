@@ -9,7 +9,7 @@ import { PROVIDERS } from '../../src/core/providers.js'
 
 // Pin a tall viewport so Settings renders its full layout (all languages visible)
 // instead of the height-dependent compact window, which would scroll Türkçe off.
-const viewport = vi.hoisted(() => ({ current: { columns: 100, rows: 40 } }))
+const viewport = vi.hoisted(() => ({ current: { columns: 100, rows: 70 } }))
 vi.mock('ink', async () => {
   const actual = await vi.importActual<typeof import('ink')>('ink')
   return { ...actual, useWindowSize: () => viewport.current }

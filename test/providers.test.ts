@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { buildCommand, coerceExtraArgs, helpCommand, missingHelpFeatures, normalizeProvider, PROVIDERS } from '../src/core/providers.js'
 import type { BuildCommandOptions } from '../src/core/providers.js'
+import type { Provider } from '../src/core/types.js'
 
 describe('providers', () => {
   describe('coerceExtraArgs', () => {
@@ -141,6 +142,16 @@ describe('providers', () => {
       expect(buildCommand({ provider: 'goose', permissions: 'ask', model: '' })[0]).toBe('goose')
       expect(buildCommand({ provider: 'kilo', permissions: 'ask', model: '' })[0]).toBe('kilo')
       expect(buildCommand({ provider: 'letta', permissions: 'ask', model: '' })[0]).toBe('letta')
+      expect(buildCommand({ provider: 'vibe', permissions: 'ask', model: '' })[0]).toBe('vibe')
+      expect(buildCommand({ provider: 'grok', permissions: 'ask', model: '' })[0]).toBe('grok')
+      expect(buildCommand({ provider: 'kiro', permissions: 'ask', model: '' })[0]).toBe('kiro-cli')
+      expect(buildCommand({ provider: 'droid', permissions: 'ask', model: '' })[0]).toBe('droid')
+      expect(buildCommand({ provider: 'qoder', permissions: 'ask', model: '' })[0]).toBe('qodercli')
+      expect(buildCommand({ provider: 'warp', permissions: 'ask', model: '' })[0]).toBe('warp')
+      expect(buildCommand({ provider: 'junie', permissions: 'ask', model: '' })[0]).toBe('junie')
+      expect(buildCommand({ provider: 'copilot', permissions: 'ask', model: '' })[0]).toBe('copilot')
+      expect(buildCommand({ provider: 'cursor', permissions: 'ask', model: '' })[0]).toBe('cursor-agent')
+      expect(buildCommand({ provider: 'rovo', permissions: 'ask', model: '' })[0]).toBe('acli')
     })
 
     it('always returns an array for all providers', () => {
@@ -414,6 +425,45 @@ describe('providers', () => {
     })
   })
 
+  describe('ten later providers', () => {
+    it('build exact launch commands without flag bleed', () => {
+      const skip = (provider: Provider, model: string) => buildCommand({ provider, permissions: 'skip', model, auth_mode: 'api-key', effort: 'high' })
+      expect(skip('vibe', 'mistral-medium-3.5')).toEqual(['vibe', '--auto-approve'])
+      expect(skip('grok', 'grok-4.6')).toEqual(['grok', '--always-approve', '--model', 'grok-4.6'])
+      expect(skip('kiro', 'claude-sonnet-4.6')).toEqual(['kiro-cli', 'chat', '--trust-all-tools', '--model', 'claude-sonnet-4.6'])
+      expect(skip('droid', 'gpt-6-sol')).toEqual(['droid', '--skip-permissions-unsafe', '--model', 'gpt-6-sol'])
+      expect(skip('qoder', 'auto')).toEqual(['qodercli', '--dangerously-skip-permissions', '--model', 'auto'])
+      expect(skip('warp', 'gpt-5.4')).toEqual(['warp', '--auto-approve'])
+      expect(skip('junie', 'sonnet')).toEqual(['junie', '--brave', '--model', 'sonnet'])
+      expect(skip('copilot', 'auto')).toEqual(['copilot', '--allow-all', '--model', 'auto'])
+      expect(skip('cursor', 'gpt-5')).toEqual(['cursor-agent', '--force', '--model', 'gpt-5'])
+      expect(skip('rovo', 'auto')).toEqual(['acli', 'rovodev', 'run', '--yolo'])
+    })
+
+    it('ask permissions add no approval flag', () => {
+      const ask = (provider: Provider) => buildCommand({ provider, permissions: 'ask', model: '' })
+      expect(ask('vibe')).toEqual(['vibe'])
+      expect(ask('grok')).toEqual(['grok'])
+      expect(ask('kiro')).toEqual(['kiro-cli', 'chat'])
+      expect(ask('droid')).toEqual(['droid'])
+      expect(ask('qoder')).toEqual(['qodercli'])
+      expect(ask('warp')).toEqual(['warp'])
+      expect(ask('junie')).toEqual(['junie'])
+      expect(ask('copilot')).toEqual(['copilot'])
+      expect(ask('cursor')).toEqual(['cursor-agent'])
+      expect(ask('rovo')).toEqual(['acli', 'rovodev', 'run'])
+    })
+
+    it('never pass the task at launch', () => {
+      for (const provider of ['vibe', 'grok', 'kiro', 'droid', 'qoder', 'warp', 'junie', 'copilot', 'cursor', 'rovo'] as const) {
+        const cmd = buildCommand({ provider, permissions: 'skip', model: '' })
+        for (const bad of ['-p', '--print', '--prompt', '-i', '--single', '--no-interactive', '--task']) {
+          expect(cmd, `${provider} ${bad}`).not.toContain(bad)
+        }
+      }
+    })
+  })
+
   describe('letta fresh conversation', () => {
     it('always starts a new conversation', () => {
       expect(buildCommand({ provider: 'letta', permissions: 'ask', model: '' })).toEqual(['letta', '--new'])
@@ -440,6 +490,16 @@ describe('providers', () => {
       expect(typeof result.goose).toBe('boolean')
       expect(typeof result.kilo).toBe('boolean')
       expect(typeof result.letta).toBe('boolean')
+      expect(typeof result.vibe).toBe('boolean')
+      expect(typeof result.grok).toBe('boolean')
+      expect(typeof result.kiro).toBe('boolean')
+      expect(typeof result.droid).toBe('boolean')
+      expect(typeof result.qoder).toBe('boolean')
+      expect(typeof result.warp).toBe('boolean')
+      expect(typeof result.junie).toBe('boolean')
+      expect(typeof result.copilot).toBe('boolean')
+      expect(typeof result.cursor).toBe('boolean')
+      expect(typeof result.rovo).toBe('boolean')
       expect(Object.keys(result)).toEqual(PROVIDERS)
     })
   })
@@ -459,6 +519,16 @@ describe('providers', () => {
       expect(helpCommand('goose')).toEqual(['goose', 'session', '--help'])
       expect(helpCommand('kilo')).toEqual(['kilo', '--help'])
       expect(helpCommand('letta')).toEqual(['letta', '--help'])
+      expect(helpCommand('vibe')).toEqual(['vibe', '--help'])
+      expect(helpCommand('grok')).toEqual(['grok', '--help'])
+      expect(helpCommand('kiro')).toEqual(['kiro-cli', 'chat', '--help'])
+      expect(helpCommand('droid')).toEqual(['droid', 'exec', '--help'])
+      expect(helpCommand('qoder')).toEqual(['qodercli', '--help'])
+      expect(helpCommand('warp')).toEqual(['warp', '--help'])
+      expect(helpCommand('junie')).toEqual(['junie', '--help'])
+      expect(helpCommand('copilot')).toEqual(['copilot', '--help'])
+      expect(helpCommand('cursor')).toEqual(['cursor-agent', '--help'])
+      expect(helpCommand('rovo')).toEqual(['acli', 'rovodev', 'run', '--help'])
     })
 
     it('detects missing opencode prompt and model support', () => {
@@ -507,6 +577,32 @@ describe('providers', () => {
       expect(missingHelpFeatures('letta', 'usage: letta')).toEqual(['fresh conversation', 'model selection'])
       expect(missingHelpFeatures('letta', 'usage: letta --new')).toEqual(['model selection'])
       expect(missingHelpFeatures('letta', 'usage: letta --new --model x')).toEqual([])
+    })
+
+    it('detects missing vibe, grok, kiro, droid, and qoder support details', () => {
+      expect(missingHelpFeatures('vibe', 'usage: vibe')).toEqual(['skip permissions'])
+      expect(missingHelpFeatures('vibe', 'usage: vibe --auto-approve')).toEqual([])
+      expect(missingHelpFeatures('grok', 'usage: grok --model x')).toEqual(['skip permissions'])
+      expect(missingHelpFeatures('grok', 'usage: grok --model x --always-approve')).toEqual([])
+      expect(missingHelpFeatures('kiro', 'usage: kiro-cli chat --model x')).toEqual(['skip permissions'])
+      expect(missingHelpFeatures('kiro', 'usage: kiro-cli chat --model x --trust-all-tools')).toEqual([])
+      expect(missingHelpFeatures('droid', 'usage: droid exec --model x')).toEqual(['skip permissions'])
+      expect(missingHelpFeatures('droid', 'usage: droid exec --model x --skip-permissions-unsafe')).toEqual([])
+      expect(missingHelpFeatures('qoder', 'usage: qodercli --model x')).toEqual(['skip permissions'])
+      expect(missingHelpFeatures('qoder', 'usage: qodercli --model x --dangerously-skip-permissions')).toEqual([])
+    })
+
+    it('detects missing warp, junie, copilot, cursor, and rovo support details', () => {
+      expect(missingHelpFeatures('warp', 'usage: warp')).toEqual(['skip permissions'])
+      expect(missingHelpFeatures('warp', 'usage: warp --auto-approve')).toEqual([])
+      expect(missingHelpFeatures('junie', 'usage: junie --model=x')).toEqual(['skip permissions'])
+      expect(missingHelpFeatures('junie', 'usage: junie --model=x --brave')).toEqual([])
+      expect(missingHelpFeatures('copilot', 'usage: copilot --model x')).toEqual(['skip permissions'])
+      expect(missingHelpFeatures('copilot', 'usage: copilot --model x --allow-all')).toEqual([])
+      expect(missingHelpFeatures('cursor', 'usage: agent --model x')).toEqual(['skip permissions'])
+      expect(missingHelpFeatures('cursor', 'usage: agent --model x --force')).toEqual([])
+      expect(missingHelpFeatures('rovo', 'usage: acli rovodev run')).toEqual(['skip permissions'])
+      expect(missingHelpFeatures('rovo', 'usage: acli rovodev run --yolo')).toEqual([])
     })
   })
 })
