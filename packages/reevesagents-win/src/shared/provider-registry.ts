@@ -394,6 +394,7 @@ export const PROVIDER_REGISTRY: Record<Provider, ProviderDef> = {
       // Bare letta resumes the last conversation for the project; --new always
       // starts a fresh one so a new worker never inherits old context.
       const args: string[] = ['--new']
+      // --permission-mode is real but hidden from --help, so doctor cannot require it.
       if (permissions === 'skip') args.push('--permission-mode', 'unrestricted')
       if (model) args.push('--model', model)
       return args
