@@ -46,7 +46,9 @@ const PROVIDER_ALIASES: Record<string, Provider> = Object.fromEntries(
 )
 
 const HELP_INSPECT_TIMEOUT_MS = 3000
-const HELP_INSPECT_TOTAL_BUDGET_MS = 8000
+// The budget grows with the catalogue at 1.5s per provider (8s floor); once it
+// runs out, the providers left are reported as skipped.
+const HELP_INSPECT_TOTAL_BUDGET_MS = Math.max(8000, PROVIDERS.length * 1500)
 
 export interface ProviderCompatibility {
   provider: Provider
@@ -85,15 +87,21 @@ export function buildCommand(opts: BuildCommandOptions): string[] {
   return [def.bin, ...def.buildArgs({ permissions, model, auth_mode, effort }), ...extra_args]
 }
 
+// True when the binary resolves on PATH. Shared by the provider and the helper
+// tool catalogues so both availability reports use the same probe.
+export function binaryOnPath(bin: string): boolean {
+  try {
+    execFileSync('which', [bin], { stdio: 'pipe' })
+    return true
+  } catch {
+    return false
+  }
+}
+
 export function detectAvailable(): Record<Provider, boolean> {
   const result = {} as Record<Provider, boolean>
   for (const provider of PROVIDERS) {
-    try {
-      execFileSync('which', [BIN[provider]], { stdio: 'pipe' })
-      result[provider] = true
-    } catch {
-      result[provider] = false
-    }
+    result[provider] = binaryOnPath(BIN[provider])
   }
   return result
 }

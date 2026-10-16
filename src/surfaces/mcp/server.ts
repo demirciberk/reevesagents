@@ -50,6 +50,7 @@ import {
 } from '../../core/runs.js'
 import { detectAvailable, isProvider, coerceExtraArgs } from '../../core/providers.js'
 import { PROVIDER_DEFS } from '../../core/provider-registry.js'
+import { detectToolStatuses } from '../../core/tool-registry.js'
 import { sweepAgents, sweepAgentsThrottled, sweepOrphanSessions, sweepOrphanSessionsThrottled } from '../../core/reaper.js'
 import { runDoctor } from '../../core/doctor.js'
 import { hostStatus, attach, attachAll, detach } from './installer.js'
@@ -341,6 +342,12 @@ const TOOLS: ToolDef[] = [
     description: 'List the CLI providers this machine can launch: id, display name, whether it is installed, aliases, and known models. Pass an id as the provider for spawn.',
     inputSchema: { type: 'object', properties: {} },
     handler: () => ok(buildProviderCatalog()),
+  },
+  {
+    name: 'list_tools',
+    description: 'List the helper tool CLIs on this machine (Perplexity, Google Colab, Hugging Face, Ollama): what each is for, whether it is installed, and its state (signed in, or reachable for Ollama), plus an example command and a docs link. They are not spawn providers; run them from your own shell.',
+    inputSchema: { type: 'object', properties: {} },
+    handler: () => ok(detectToolStatuses()),
   },
   {
     name: 'request_approval',

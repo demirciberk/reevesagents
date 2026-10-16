@@ -6,6 +6,7 @@ import { createRequire } from 'node:module'
 import { join } from 'node:path'
 import type { CheckResult, Provider } from './types.js'
 import { detectAvailable, inspectProviderCompatibility } from './providers.js'
+import { detectToolStatuses } from './tool-registry.js'
 import { listRuns, runsDir, stateRoot } from './runs.js'
 import { tmuxVersion } from './tmux.js'
 import { WEB_EXTRA_MODULES } from '../surfaces/webui/extras.js'
@@ -134,6 +135,19 @@ function checkProviderCompatibility(): CheckResult {
   }
 }
 
+// Helper tool CLIs (search, runtimes, model hub, local models) an agent may run
+// from its own shell. Informational only: a missing tool never fails the run,
+// it just narrows what agents can reach.
+function checkTools(): CheckResult {
+  const statuses = detectToolStatuses()
+  const detail = statuses
+    .map(tool => tool.installed
+      ? `${tool.display_name}: installed, ${tool.state_means}: ${tool.state}`
+      : `${tool.display_name}: missing`)
+    .join('; ')
+  return { name: 'tools', status: 'ok', detail }
+}
+
 function checkPathAccess(name: string, path: string): CheckResult {
   if (!existsSync(path)) return { name, status: 'warn', detail: `${path} (will be created on first use)` }
   try {
@@ -203,6 +217,7 @@ export function runDoctor(): DoctorResult {
       checkTmux(),
       checkProviders(),
       checkProviderCompatibility(),
+      checkTools(),
       checkPathAccess('state dir', stateRoot()),
       checkPathAccess('runs dir', runsDir()),
       checkPathAccess('presets dir', join(stateRoot(), 'presets')),

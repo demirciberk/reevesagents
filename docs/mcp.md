@@ -43,6 +43,8 @@ own CLI only if you explicitly want that worker to spawn more agents.
 
 - `list_providers`: list installed provider CLIs, aliases, model ids, and launch
   capabilities.
+- `list_tools`: list the supported tools (Perplexity CLI, Google Colab CLI, Hugging Face
+  CLI, Ollama) with purpose, example command, and install and sign-in state.
 - `spawn`: start an agent, either in a new run or an existing run.
 - `read`: read recent output from one agent.
 - `send_text`: paste text into an agent. It does not submit.

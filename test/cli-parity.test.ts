@@ -393,6 +393,82 @@ describe('cli parity', () => {
     })
   })
 
+  describe('tools', () => {
+    const toolKeys = ['PERPLEXITY_API_KEY', 'HF_TOKEN', 'OLLAMA_API_KEY'] as const
+    const savedKeys = new Map<string, string | undefined>()
+    let savedHome: string | undefined
+    let tmpHome: string
+
+    beforeEach(() => {
+      for (const key of toolKeys) {
+        savedKeys.set(key, process.env[key])
+        delete process.env[key]
+      }
+      // Point home at an empty dir so the pplx credentials-file probe cannot
+      // pick up the real machine's state.
+      tmpHome = mkdtempSync(join(tmpdir(), 'reeves-cli-tools-'))
+      savedHome = process.env.HOME
+      process.env.HOME = tmpHome
+    })
+
+    afterEach(() => {
+      for (const [key, value] of savedKeys) {
+        if (value === undefined) delete process.env[key]
+        else process.env[key] = value
+      }
+      if (savedHome === undefined) delete process.env.HOME
+      else process.env.HOME = savedHome
+      rmSync(tmpHome, { recursive: true, force: true })
+    })
+
+    it('lists helper tools with install and state as JSON', async () => {
+      execFileSync.mockImplementation((file: string, args: string[]) => {
+        if (file === 'which' && args[0] === 'hf') return Buffer.from('/usr/local/bin/hf\n')
+        throw new Error(`absent: ${file}`)
+      })
+
+      const { out } = await runCli(['tools', '--json'])
+      const tools = JSON.parse(out) as Array<{ id: string; display_name: string; installed: boolean; state: string; state_means: string; example: string }>
+      expect(tools.map(tool => tool.id)).toEqual(['pplx', 'colab', 'hf', 'ollama'])
+
+      const hf = tools.find(tool => tool.id === 'hf')!
+      expect(hf.display_name).toBe('Hugging Face CLI')
+      expect(hf.installed).toBe(true)
+      expect(hf.state).toBe('no') // no HF_TOKEN, and the mocked probe exits 1
+      expect(hf.state_means).toBe('signed in')
+      expect(hf.example).toMatch(/^hf /)
+
+      const pplx = tools.find(tool => tool.id === 'pplx')!
+      expect(pplx.installed).toBe(false)
+      expect(pplx.state).toBe('unknown') // nothing to probe with
+
+      const ollama = tools.find(tool => tool.id === 'ollama')!
+      expect(ollama.state_means).toBe('reachable')
+      expect(ollama.example).toMatch(/[-:]cloud/)
+    })
+
+    it('prints a text catalogue with purpose and example lines', async () => {
+      execFileSync.mockImplementation(() => { throw new Error('which: not found') })
+      const { out } = await runCli(['tools'])
+      expect(out).toMatch(/--\s+pplx\s+Perplexity CLI\s+not installed/)
+      expect(out).toMatch(/Web search and page snippets from Perplexity/)
+      expect(out).toMatch(/ollama run gemma4:31b-cloud/)
+      expect(out).toMatch(/Ollama\s+not installed/)
+    })
+
+    it('prints the sign-in state only for installed tools', async () => {
+      execFileSync.mockImplementation((file: string, args: string[]) => {
+        if (file === 'which' && args[0] === 'hf') return Buffer.from('/usr/local/bin/hf\n')
+        throw new Error(`absent: ${file}`)
+      })
+
+      const { out } = await runCli(['tools'])
+      expect(out).toMatch(/ok\s+hf\s+Hugging Face CLI\s+signed in: no/)
+      expect(out).toMatch(/--\s+pplx\s+Perplexity CLI\s+not installed/)
+      expect(out).not.toMatch(/Perplexity CLI\s+signed in/)
+    })
+  })
+
   describe('approvals', () => {
     it('lists pending approvals as JSON', async () => {
       const { writeRun, writeAgent } = await import('../src/core/runs.js')
