@@ -86,7 +86,7 @@ export const CLINE_MODELS = [
   'google/gemini-3.1-pro',
 ] as const
 
-export const CRUSH_MODEL_SOURCE = 'set in Crush itself (/models); the launch has no model flag'
+export const CRUSH_MODEL_SOURCE = 'chosen inside Crush (its TUI model picker); the launch has no model flag'
 export const CRUSH_MODELS = [] as const
 
 export const GOOSE_MODEL_SOURCE = 'curated Goose model ids'
@@ -138,7 +138,7 @@ export const QODER_MODELS = [
   'lite',
 ] as const
 
-export const WARP_MODEL_SOURCE = 'chosen per conversation in the Warp UI; the launch has no model flag'
+export const WARP_MODEL_SOURCE = 'chosen inside the Warp TUI; the launch has no model flag'
 export const WARP_MODELS = [] as const
 
 export const JUNIE_MODEL_SOURCE = 'curated Junie CLI model ids'
