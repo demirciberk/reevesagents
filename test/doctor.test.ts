@@ -1,7 +1,14 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { mkdtempSync, rmSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
+
+// runDoctor probes helper tool CLIs through node:child_process (hf auth whoami,
+// colab --auth=oauth2 whoami, ollama list) and PATH through `which`; intercept
+// both so no real CLI ever runs here. `which` fails by default, so every tool
+// and provider reads as missing and the checks stay deterministic.
+const execFileSync = vi.hoisted(() => vi.fn())
+vi.mock('node:child_process', () => ({ execFileSync, spawnSync: vi.fn(() => ({ status: 1, stdout: '' })) }))
 
 let tmpDir: string
 
@@ -9,6 +16,8 @@ beforeEach(() => {
   tmpDir = mkdtempSync(join(tmpdir(), 'reeves-doctor-test-'))
   process.env.REEVES_REGISTRY = tmpDir
   process.env.REEVES_DOCTOR_SKIP_PROVIDER_COMPAT = '1'
+  execFileSync.mockReset()
+  execFileSync.mockImplementation(() => { throw new Error('which: not found') })
 })
 
 afterEach(() => {
