@@ -107,7 +107,7 @@ ReevesAgents 从设计上就是纯本地的。状态是 `~/.reeves` 下的纯 JS
 
 ## 工具
 
-除了编码 CLI，ReevesAgents 还认识四个工具。Perplexity CLI 用于网页搜索，Google Colab CLI 在 CPU、GPU 和 TPU 运行时上运行脚本与笔记本，Hugging Face CLI 在 Hub 上下载、上传模型和数据集并运行作业，Ollama 在终端里运行本地或云端模型。智能体在自己的 shell 中调用它们。
+除了编码 CLI，ReevesAgents 还支持四个工具。Perplexity CLI 用于网页搜索，Google Colab CLI 在 CPU、GPU 和 TPU 运行时上运行脚本与笔记本，Hugging Face CLI 下载和上传模型与数据集，并在 Hub 上运行作业，Ollama 在终端里运行本地或云端模型。智能体在自己的 shell 中调用它们。
 
 `reevesagents tools` 会列出这四个工具，并给出用途、示例命令以及各自的状态：是否已安装、是否已登录（Ollama 则是服务是否可达）。脚本场景可加 `--json`。已附加 MCP 的智能体通过 `list_tools` 获得同一份列表。
 

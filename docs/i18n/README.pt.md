@@ -118,13 +118,13 @@ as CLIs que arranca são as mesmas que já usa à mão.
 ## Ferramentas
 
 Quatro ferramentas acompanham as CLIs de programação. O Perplexity CLI pesquisa
-na web, o Google Colab CLI executa scripts e notebooks em runtimes de CPU, GPU e
-TPU, o Hugging Face CLI descarrega e envia modelos e conjuntos de dados e lança
-jobs no Hub, e o Ollama corre modelos locais ou na nuvem a partir do terminal.
+na web, o Google Colab CLI executa scripts e notebooks em ambientes de execução
+com CPU, GPU e TPU, o Hugging Face CLI descarrega e envia modelos e conjuntos de dados e lança
+jobs no Hub, e o Ollama executa modelos locais ou na nuvem a partir do terminal.
 Os agentes chamam-nas a partir da sua própria shell.
 
 `reevesagents tools` lista as quatro com a finalidade, um comando de exemplo e o
-estado: instalada e com sessão iniciada (no Ollama: acessível). Junte `--json`
+estado: instalada e com sessão iniciada (no Ollama: acessível). Acrescente `--json`
 para scripts. Um agente com o MCP associado obtém a mesma lista com
 `list_tools`.
 

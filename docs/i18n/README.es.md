@@ -117,8 +117,8 @@ CLIs que arranca son las mismas que ya usas a mano.
 ## Herramientas
 
 Cuatro herramientas acompañan a las CLIs de programación. Perplexity CLI busca
-en la web, Google Colab CLI ejecuta scripts y notebooks en runtimes de CPU, GPU
-y TPU, Hugging Face CLI descarga y sube modelos y conjuntos de datos y lanza
+en la web, Google Colab CLI ejecuta scripts y notebooks en entornos de ejecución
+con CPU, GPU y TPU, Hugging Face CLI descarga y sube modelos y conjuntos de datos y lanza
 jobs en el Hub, y Ollama ejecuta modelos locales o en la nube desde la terminal.
 Los agentes las llaman desde su propia shell.
 

@@ -40,14 +40,14 @@ commande et chaque option, tout est recensé dans le [guide en ligne](https://re
 
 ## Outils
 
-- Quatre outils se placent à côté des CLI de code : Perplexity CLI (recherche
+- Quatre outils complètent les CLI de code : Perplexity CLI (recherche
   web), Google Colab CLI (runtimes CPU, GPU et TPU), Hugging Face CLI (modèles
   et jeux de données sur le Hub) et Ollama (modèles locaux et cloud). Les agents
   les lancent depuis leur propre shell.
 - `reevesagents tools` indique lesquels sont installés et si vous êtes connecté
-  (pour Ollama : si le serveur répond), avec un rôle et une commande d'exemple
+  (pour Ollama : si le serveur répond), avec un rôle et un exemple de commande
   pour chacun. Ajoutez `--json` pour les scripts.
-- Un agent dont le MCP est attaché appelle `list_tools` pour obtenir la même
+- Un agent avec le MCP attaché appelle `list_tools` pour obtenir la même
   liste.
 
 ## Installation et vérification

@@ -119,12 +119,12 @@ benutzt.
 
 Neben den Coding-CLIs kennt ReevesAgents vier Tools. Perplexity CLI durchsucht
 das Web, Google Colab CLI führt Skripte und Notebooks auf CPU-, GPU- und
-TPU-Runtimes aus, Hugging Face CLI lädt Modelle und Datensätze vom Hub herunter
-oder dorthin hoch und startet dort Jobs, und Ollama betreibt lokale oder
-Cloud-Modelle im Terminal. Die Agenten rufen sie aus ihrer eigenen Shell auf.
+TPU-Runtimes aus, Hugging Face CLI lädt Modelle und Datensätze herunter und hoch
+und startet Jobs auf dem Hub, und Ollama führt lokale oder Cloud-Modelle im
+Terminal aus. Die Agenten rufen sie aus ihrer eigenen Shell auf.
 
 `reevesagents tools` listet die vier mit Zweck, Beispielbefehl und Status auf:
-installiert und angemeldet (bei Ollama: erreichbar). Mit `--json` für Skripte.
+installiert und angemeldet (bei Ollama: erreichbar). Für Skripte gibt es `--json`.
 Ein Agent mit angehängtem MCP bekommt dieselbe Liste über `list_tools`.
 
 <a id="install"></a>

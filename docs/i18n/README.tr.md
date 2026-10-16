@@ -123,8 +123,8 @@ ortamlarında çalıştırır, Hugging Face CLI modelleri ve veri kümelerini in
 yükler ve Hub üzerinde iş çalıştırır, Ollama ise yerel ya da bulut modellerini
 terminalden çalıştırır. Agent'lar bunları kendi kabuklarından çağırır.
 
-`reevesagents tools` bu dördünü amacı, örnek bir komutu ve durumuyla listeler:
-kurulu mu, giriş yapılmış mı (Ollama için: erişilebilir mi). Script'ler için
+`reevesagents tools` bu dört aracın her biri için amacı, örnek bir komutu ve
+durumu listeler: kurulu mu, giriş yapılmış mı (Ollama için: erişilebilir mi). Script'ler için
 `--json` ekleyin. MCP'si bağlı bir agent aynı listeyi `list_tools` ile alır.
 
 <a id="install"></a>
@@ -205,7 +205,7 @@ Argümansız çalıştırıldığında TUI açılır.
 | `doctor` | Node, tmux, durum dizini ve sağlayıcı CLI'lerini kontrol eder. |
 | `web` | Yalnızca loopback üzerinde dinleyen Web UI'yi başlatır. |
 | `providers` | Sağlayıcı id'lerini, takma adları, modelleri ve kullanılabilirliği listeler. |
-| `tools` | Perplexity, Google Colab, Hugging Face ve Ollama'yı amacı, örneği, kurulum ve giriş durumuyla listeler. |
+| `tools` | Perplexity, Google Colab, Hugging Face ve Ollama'yı amaçları, örnekleri, kurulum ve giriş durumlarıyla listeler. |
 | `approvals` | Bekleyen onay isteklerini listeler. |
 | `approve` / `deny` | Bir onay isteğini sonuçlandırır. |
 | `hosts` | ReevesAgents'ın hangi host CLI'lere bağlı olduğunu gösterir. |

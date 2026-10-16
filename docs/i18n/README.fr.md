@@ -117,15 +117,15 @@ ReevesAgents est local par conception. L'état est du JSON simple sous
 
 ## Outils
 
-Quatre outils se placent à côté des CLI de code. Perplexity CLI cherche sur le
+Quatre outils complètent les CLI de code. Perplexity CLI cherche sur le
 web, Google Colab CLI exécute des scripts et des notebooks sur des runtimes CPU,
 GPU et TPU, Hugging Face CLI télécharge et publie des modèles et des jeux de
 données et lance des jobs sur le Hub, et Ollama fait tourner des modèles locaux
 ou cloud depuis le terminal. Les agents les appellent depuis leur propre shell.
 
-`reevesagents tools` liste ces quatre outils avec leur rôle, une commande
-d'exemple et leur état : installé et connecté (pour Ollama : joignable). Ajoutez
-`--json` pour les scripts. Un agent dont le MCP est attaché obtient la même
+`reevesagents tools` liste ces quatre outils avec leur rôle, un exemple
+de commande et leur état : installé et connecté (pour Ollama : joignable). Ajoutez
+`--json` pour les scripts. Un agent avec le MCP attaché obtient la même
 liste avec `list_tools`.
 
 <a id="install"></a>

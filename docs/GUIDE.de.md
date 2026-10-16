@@ -46,7 +46,7 @@ Option brauchst: Das steht im [Online-Handbuch](https://reevesagents.mertkayacs.
   starten sie aus ihrer eigenen Shell.
 - `reevesagents tools` zeigt, welche davon installiert sind und ob du angemeldet
   bist (bei Ollama: ob der Server antwortet), jeweils mit Zweck und
-  Beispielbefehl. Mit `--json` für Skripte.
+  Beispielbefehl. Für Skripte gibt es `--json`.
 - Ein Agent mit angehängtem MCP holt sich dieselbe Liste über `list_tools`.
 
 ## Installation und Überprüfung

@@ -23,7 +23,7 @@ Bu rehber sizi temiz bir kurulumdan alıp bir agent'ın diğerlerini sizin yerin
 
 - Kodlama CLI'lerinin yanında dört araç bulunur: Perplexity CLI (web araması), Google Colab CLI (CPU, GPU ve TPU çalışma ortamları), Hugging Face CLI (Hub üzerindeki modeller ve veri kümeleri) ve Ollama (yerel ve bulut modelleri). Agent'lar bunları kendi kabuklarından çalıştırır.
 - `reevesagents tools` hangilerinin kurulu olduğunu ve giriş yapıp yapmadığınızı (Ollama için: sunucunun yanıt verip vermediğini) her biri için amaç ve örnek komutla gösterir. Script'ler için `--json` ekleyin.
-- MCP'si bağlı bir agent aynı listeyi almak için `list_tools` çağırır.
+- MCP'si bağlı bir agent aynı listeyi almak için `list_tools` aracını çağırır.
 
 ## Kurulum ve kontrol
 

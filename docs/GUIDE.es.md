@@ -39,7 +39,7 @@ opción, eso vive en la [guía en línea](https://reevesagents.mertkayacs.com/es
 ## Herramientas
 
 - Cuatro herramientas acompañan a las CLIs de programación: Perplexity CLI
-  (búsqueda web), Google Colab CLI (runtimes de CPU, GPU y TPU),
+  (búsqueda web), Google Colab CLI (entornos de ejecución con CPU, GPU y TPU),
   Hugging Face CLI (modelos y conjuntos de datos en el Hub) y Ollama (modelos
   locales y en la nube). Los agentes las ejecutan desde su propia shell.
 - `reevesagents tools` muestra cuáles están instaladas y si tienes la sesión
