@@ -1,7 +1,7 @@
 {
   "name": "reevesagents",
   "version": "1.8.2",
-  "description": "Run and steer other AI coding CLIs (Claude Code, Codex, Kimi, Qwen, OpenCode and more) from Claude Code, each in its own tmux window, through the reevesagents MCP server",
+  "description": "Run and steer other AI coding CLIs (Claude Code, Codex, Kimi, Qwen, OpenCode, Gemini CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code and more) from Claude Code, each in its own tmux window, through the reevesagents MCP server",
   "author": {
     "name": "Mert Kaya",
     "url": "https://mertkayacs.com"
@@ -17,6 +17,12 @@
     "orchestration",
     "codex",
     "kimi",
-    "opencode"
+    "opencode",
+    "gemini",
+    "cline",
+    "crush",
+    "goose",
+    "kilo",
+    "letta"
   ]
 }

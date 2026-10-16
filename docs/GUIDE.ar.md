@@ -6,7 +6,7 @@
 
 ## ما هو ReevesAgents
 
-- مساحة عمل محلية مجانية يعمل فيها وكلاء البرمجة لديك (Claude Code وCodex وHermes وDeepSeek وKimi وغيرها) جنبًا إلى جنب على جهازك.
+- مساحة عمل محلية مجانية يعمل فيها وكلاء البرمجة لديك (Claude Code وCodex وHermes وDeepSeek وKimi وGemini CLI وCline CLI وCrush وGoose وKilo Code وLetta Code وغيرها) جنبًا إلى جنب على جهازك.
 - يمكن لوكيل واحد إنشاء الآخرين وقيادتهم عبر MCP. على سبيل المثال، تستطيع جلسة Claude Code تشغيل وكلاء Codex وClaude Code على مهام منفصلة.
 - ويمكنك استخدام ReevesAgents أيضًا كمساحة عمل عادية: أنشئ الوكلاء الذين تريدهم وواصِل إضافة المزيد بـ `reevesagents add`. يعملون جنبًا إلى جنب، ولا يتحكم أحد في أحد حتى تختار تفعيل الـ MCP.
 - وهو يقوم فوق أدوات CLI الموجودة لديك أصلًا، فيبقى كل تسجيل دخول في مكانه المعهود. لا يحمل ReevesAgents مفتاح API أبدًا، ولا يمسّ حركة النماذج لديك.
@@ -17,7 +17,7 @@
 - macOS أو Linux أو WSL (نظام Windows الأصلي ليس الهدف؛ استخدم WSL).
 - Node.js 20.19 أو أحدث.
 - tmux 3.0 أو أحدث.
-- أداة CLI واحدة على الأقل من مزوّد، مثبّتة وموثّقة: Claude Code أو Codex أو OpenCode أو Hermes أو Kimi أو DeepSeek أو Pi أو Qwen أو Aider.
+- أداة CLI واحدة على الأقل من مزوّد، مثبّتة وموثّقة: Claude Code أو Codex أو OpenCode أو Hermes أو Kimi أو DeepSeek أو Pi أو Qwen أو Aider أو Gemini CLI أو Cline CLI أو Crush أو Goose أو Kilo Code أو Letta Code.
 
 ## التثبيت والتحقق
 

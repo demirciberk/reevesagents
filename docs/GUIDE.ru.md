@@ -9,8 +9,9 @@
 ## Что такое ReevesAgents
 
 - Бесплатное локальное рабочее пространство, где ваши AI-агенты для работы с
-  кодом (Claude Code, Codex, Hermes, DeepSeek, Kimi и другие) работают бок о
-  бок на вашей машине.
+  кодом (Claude Code, Codex, Hermes, DeepSeek, Kimi, Gemini CLI, Cline CLI,
+  Crush, Goose, Kilo Code, Letta Code и другие) работают бок о бок на вашей
+  машине.
 - Один агент может создавать других и управлять ими через MCP. Например, сессия
   Claude Code может вести агентов Codex и Claude Code по отдельным задачам.
 - Можно использовать ReevesAgents и как обычное рабочее пространство. Запустите
@@ -29,7 +30,8 @@
 - Node.js версии 20.19 или новее.
 - tmux версии 3.0 или новее.
 - Хотя бы один провайдерский CLI, установленный и с выполненным входом: Claude
-  Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen или Aider.
+  Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen, Aider, Gemini CLI,
+  Cline CLI, Crush, Goose, Kilo Code или Letta Code.
 
 ## Установка и проверка
 

@@ -81,17 +81,23 @@ geschieht erst, wenn der Agent-Control-MCP angehängt ist.
 Führe `reevesagents providers` aus (mit `--json` für eine Maschinenliste). Jeder Alias
 funktioniert als Provider in einer spawn-Spec.
 
-| id         | provider     | gängige Aliasse             |
-| ---------- | ------------ | --------------------------- |
-| `cc`       | Claude Code  | `claude`, `claude-code`     |
-| `codex`    | Codex CLI    | `codex-cli`                 |
-| `kimi`     | Kimi Code    | `kimi-code`                 |
-| `qwen`     | Qwen Code    | `qwen-code`                 |
-| `opencode` | OpenCode CLI | `open_code`                 |
-| `hermes`   | Hermes       |                             |
-| `pi`       | Pi           |                             |
-| `aider`    | Aider        |                             |
-| `deepseek` | DeepSeek CLI | `deepseek-cli`              |
+| id         | provider     | gängige Aliasse                        |
+| ---------- | ------------ | -------------------------------------- |
+| `cc`       | Claude Code  | `claude`, `claude-code`                |
+| `codex`    | Codex CLI    | `codex-cli`                            |
+| `kimi`     | Kimi Code    | `kimi-code`                            |
+| `qwen`     | Qwen Code    | `qwen-code`                            |
+| `opencode` | OpenCode CLI | `open_code`                            |
+| `hermes`   | Hermes       |                                        |
+| `pi`       | Pi           |                                        |
+| `aider`    | Aider        |                                        |
+| `deepseek` | DeepSeek CLI | `deepseek-cli`                         |
+| `gemini`   | Gemini CLI   | `gemini cli`, `gemini-cli`             |
+| `cline`    | Cline CLI    | `cline cli`, `cline-cli`               |
+| `crush`    | Crush        | `charm crush`, `charm-crush`           |
+| `goose`    | Goose        |                                        |
+| `kilo`     | Kilo Code    | `kilo code`, `kilo-code`, `kilocode`   |
+| `letta`    | Letta Code   | `letta code`, `letta-code`             |
 
 ## Laufende Agenten beobachten und lenken
 

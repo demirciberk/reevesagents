@@ -19,7 +19,8 @@
 [English](../../README.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt.md) · [Italiano](README.it.md) · [Türkçe](README.tr.md) · [Русский](README.ru.md) · [简体中文](README.zh-Hans.md) · **العربية**
 
 ReevesAgents مساحة عمل محلية لأدوات CLI للبرمجة بالذكاء الاصطناعي. يشغّل Claude Code
-وCodex وOpenCode وHermes وKimi وDeepSeek وQwen وPi وAider وغيرها من أدوات CLI
+وCodex وOpenCode وHermes وKimi وDeepSeek وQwen وPi وAider وGemini CLI وCline CLI
+وCrush وGoose وKilo Code وLetta Code وغيرها من أدوات CLI
 للمزوّدين جنبًا إلى جنب داخل tmux. تستطيع استخدامه أداة CLI/TUI/Web UI عادية، أو
 ربط خادم MCP الاختياري الخاص به حتى يتمكن وكيل واحد من إنشاء البقية وقراءة
 مخرجاتهم وتوجيههم وإيقافهم.

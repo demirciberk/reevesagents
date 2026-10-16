@@ -9,7 +9,7 @@
     {
       "name": "reevesagents",
       "source": "./plugin",
-      "description": "Run and steer other AI coding CLIs (Claude Code, Codex, Kimi, Qwen, OpenCode and more) from Claude Code, each in its own tmux window, through the reevesagents MCP server",
+      "description": "Run and steer other AI coding CLIs (Claude Code, Codex, Kimi, Qwen, OpenCode, Gemini CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code and more) from Claude Code, each in its own tmux window, through the reevesagents MCP server",
       "category": "development",
       "tags": ["agents", "multi-agent", "mcp", "tmux", "orchestration"]
     }

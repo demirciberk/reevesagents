@@ -19,8 +19,9 @@
 [English](../../README.md) · **Deutsch** · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt.md) · [Italiano](README.it.md) · [Türkçe](README.tr.md) · [Русский](README.ru.md) · [简体中文](README.zh-Hans.md) · [العربية](README.ar.md)
 
 ReevesAgents ist ein lokaler Workspace für KI-Coding-CLIs. Es lässt Claude Code,
-Codex, OpenCode, Hermes, Kimi, DeepSeek, Qwen, Pi, Aider und weitere
-Anbieter-CLIs nebeneinander in tmux laufen. Du kannst es als ganz normale
+Codex, OpenCode, Hermes, Kimi, DeepSeek, Qwen, Pi, Aider, Gemini CLI, Cline CLI,
+Crush, Goose, Kilo Code, Letta Code und weitere Anbieter-CLIs nebeneinander in
+tmux laufen. Du kannst es als ganz normale
 CLI/TUI/Web UI nutzen oder seinen Opt-in-MCP anhängen, damit ein Agent die
 übrigen starten, auslesen, lenken und stoppen kann.
 

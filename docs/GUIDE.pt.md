@@ -9,8 +9,8 @@ e de cada opção, está tudo no [guia online](https://reevesagents.mertkayacs.c
 ## O que é o ReevesAgents
 
 - Um espaço de trabalho livre e local onde os seus agentes de código de IA
-  (Claude Code, Codex, Hermes, DeepSeek, Kimi e outros) trabalham lado a lado
-  na sua máquina.
+  (Claude Code, Codex, Hermes, DeepSeek, Kimi, Gemini CLI, Cline CLI, Crush,
+  Goose, Kilo Code, Letta Code e outros) trabalham lado a lado na sua máquina.
 - Um agente pode criar e conduzir os outros através do MCP. Por exemplo, uma
   sessão de Claude Code pode pôr agentes Codex e Claude Code a trabalhar em
   tarefas separadas.
@@ -30,7 +30,8 @@ e de cada opção, está tudo no [guia online](https://reevesagents.mertkayacs.c
 - Node.js 20.19 ou mais recente.
 - tmux 3.0 ou mais recente.
 - Pelo menos uma CLI de fornecedor instalada e com sessão iniciada: Claude
-  Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen ou Aider.
+  Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen, Aider, Gemini CLI,
+  Cline CLI, Crush, Goose, Kilo Code ou Letta Code.
 
 ## Instalar e verificar
 

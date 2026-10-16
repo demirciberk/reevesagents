@@ -88,17 +88,23 @@ controlo de agentes está associado.
 Execute `reevesagents providers` (acrescente `--json` para uma lista legível por
 máquina). Qualquer alias serve como fornecedor numa spec de spawn.
 
-| id         | fornecedor   | aliases comuns                  |
-| ---------- | ------------ | ------------------------------- |
-| `cc`       | Claude Code  | `claude`, `claude-code`         |
-| `codex`    | Codex CLI    | `codex-cli`                     |
-| `kimi`     | Kimi Code    | `kimi-code`                     |
-| `qwen`     | Qwen Code    | `qwen-code`                     |
-| `opencode` | OpenCode CLI | `open_code`                     |
-| `hermes`   | Hermes       |                                 |
-| `pi`       | Pi           |                                 |
-| `aider`    | Aider        |                                 |
-| `deepseek` | DeepSeek CLI | `deepseek-cli`                  |
+| id         | fornecedor   | aliases comuns                         |
+| ---------- | ------------ | -------------------------------------- |
+| `cc`       | Claude Code  | `claude`, `claude-code`                |
+| `codex`    | Codex CLI    | `codex-cli`                            |
+| `kimi`     | Kimi Code    | `kimi-code`                            |
+| `qwen`     | Qwen Code    | `qwen-code`                            |
+| `opencode` | OpenCode CLI | `open_code`                            |
+| `hermes`   | Hermes       |                                        |
+| `pi`       | Pi           |                                        |
+| `aider`    | Aider        |                                        |
+| `deepseek` | DeepSeek CLI | `deepseek-cli`                         |
+| `gemini`   | Gemini CLI   | `gemini cli`, `gemini-cli`             |
+| `cline`    | Cline CLI    | `cline cli`, `cline-cli`               |
+| `crush`    | Crush        | `charm crush`, `charm-crush`           |
+| `goose`    | Goose        |                                        |
+| `kilo`     | Kilo Code    | `kilo code`, `kilo-code`, `kilocode`   |
+| `letta`    | Letta Code   | `letta code`, `letta-code`             |
 
 ## Observar e orientar agentes em execução
 

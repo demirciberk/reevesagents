@@ -6,7 +6,7 @@ Questa guida ti porta da un'installazione pulita fino al punto in cui è un agen
 
 ## Cos'è ReevesAgents
 
-- Uno spazio di lavoro gratuito e locale dove i tuoi agenti di codifica IA (Claude Code, Codex, Hermes, DeepSeek, Kimi e altri) lavorano fianco a fianco sulla tua macchina.
+- Uno spazio di lavoro gratuito e locale dove i tuoi agenti di codifica IA (Claude Code, Codex, Hermes, DeepSeek, Kimi, Gemini CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code e altri) lavorano fianco a fianco sulla tua macchina.
 - Un agente può creare e guidare gli altri tramite MCP. Per esempio, una sessione Claude Code può far lavorare agenti Codex e Claude Code su compiti separati.
 - Puoi anche usare ReevesAgents come un normale spazio di lavoro: genera gli agenti che vuoi e continua ad aggiungerne altri con `reevesagents add`. Restano fianco a fianco, e nessuno guida nessuno finché non colleghi l'MCP.
 - Si appoggia alle CLI che hai già, quindi ogni login resta esattamente dov'è sempre stato. ReevesAgents non custodisce mai una chiave API e non tocca mai il tuo traffico verso i modelli.
@@ -17,7 +17,7 @@ Questa guida ti porta da un'installazione pulita fino al punto in cui è un agen
 - macOS, Linux o WSL (Windows nativo non è il target; usa WSL).
 - Node.js 20.19 o più recente.
 - tmux 3.0 o più recente.
-- Almeno una CLI di provider installata e loggata: Claude Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen o Aider.
+- Almeno una CLI di provider installata e loggata: Claude Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen, Aider, Gemini CLI, Cline CLI, Crush, Goose, Kilo Code o Letta Code.
 
 ## Installa e verifica
 

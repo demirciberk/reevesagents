@@ -88,17 +88,23 @@ run без id run'а (передайте `--run <run-id>`, чтобы указа
 Выполните `reevesagents providers` (добавьте `--json` для машинного списка).
 Любой алиас работает как провайдер в спецификации spawn.
 
-| id         | провайдер    | распространённые алиасы     |
-| ---------- | ------------ | --------------------------- |
-| `cc`       | Claude Code  | `claude`, `claude-code`     |
-| `codex`    | Codex CLI    | `codex-cli`                 |
-| `kimi`     | Kimi Code    | `kimi-code`                 |
-| `qwen`     | Qwen Code    | `qwen-code`                 |
-| `opencode` | OpenCode CLI | `open_code`                 |
-| `hermes`   | Hermes       |                             |
-| `pi`       | Pi           |                             |
-| `aider`    | Aider        |                             |
-| `deepseek` | DeepSeek CLI | `deepseek-cli`              |
+| id         | провайдер    | распространённые алиасы                |
+| ---------- | ------------ | -------------------------------------- |
+| `cc`       | Claude Code  | `claude`, `claude-code`                |
+| `codex`    | Codex CLI    | `codex-cli`                            |
+| `kimi`     | Kimi Code    | `kimi-code`                            |
+| `qwen`     | Qwen Code    | `qwen-code`                            |
+| `opencode` | OpenCode CLI | `open_code`                            |
+| `hermes`   | Hermes       |                                        |
+| `pi`       | Pi           |                                        |
+| `aider`    | Aider        |                                        |
+| `deepseek` | DeepSeek CLI | `deepseek-cli`                         |
+| `gemini`   | Gemini CLI   | `gemini cli`, `gemini-cli`             |
+| `cline`    | Cline CLI    | `cline cli`, `cline-cli`               |
+| `crush`    | Crush        | `charm crush`, `charm-crush`           |
+| `goose`    | Goose        |                                        |
+| `kilo`     | Kilo Code    | `kilo code`, `kilo-code`, `kilocode`   |
+| `letta`    | Letta Code   | `letta code`, `letta-code`             |
 
 ## Наблюдение за запущенными агентами и управление ими
 
