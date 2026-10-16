@@ -86,12 +86,8 @@ export const CLINE_MODELS = [
   'google/gemini-3.1-pro',
 ] as const
 
-export const CRUSH_MODEL_SOURCE = 'curated Crush model ids'
-export const CRUSH_MODELS = [
-  'anthropic/claude-sonnet-4-6',
-  'anthropic/claude-opus-4-8',
-  'gemini/gemini-3.5-flash',
-] as const
+export const CRUSH_MODEL_SOURCE = 'set in Crush itself (/models); the launch has no model flag'
+export const CRUSH_MODELS = [] as const
 
 export const GOOSE_MODEL_SOURCE = 'curated Goose model ids'
 export const GOOSE_MODELS = [
@@ -115,12 +111,8 @@ export const LETTA_MODELS = [
   'Qwen/Qwen3-Coder-480B-A35B-Instruct',
 ] as const
 
-export const VIBE_MODEL_SOURCE = 'curated Mistral Vibe model ids'
-export const VIBE_MODELS = [
-  'mistral-medium-3.5',
-  'mistral-vibe-cli-latest',
-  'glm-5.3',
-] as const
+export const VIBE_MODEL_SOURCE = 'set in vibe config (active_model or VIBE_ACTIVE_MODEL); the launch has no model flag'
+export const VIBE_MODELS = [] as const
 
 export const GROK_MODEL_SOURCE = 'curated Grok Build model ids'
 export const GROK_MODELS = [
@@ -136,12 +128,8 @@ export const KIRO_MODELS = [
   'claude-opus-4.6',
 ] as const
 
-export const DROID_MODEL_SOURCE = 'curated Factory Droid model ids'
-export const DROID_MODELS = [
-  'gpt-6-sol',
-  'claude-opus-5',
-  'gemini-3.1-pro-preview',
-] as const
+export const DROID_MODEL_SOURCE = 'chosen inside Factory Droid itself; the launch has no model flag'
+export const DROID_MODELS = [] as const
 
 export const QODER_MODEL_SOURCE = 'curated Qoder CLI model ids'
 export const QODER_MODELS = [
@@ -150,12 +138,8 @@ export const QODER_MODELS = [
   'lite',
 ] as const
 
-export const WARP_MODEL_SOURCE = 'curated Warp model ids'
-export const WARP_MODELS = [
-  'claude-sonnet-4-6',
-  'gpt-5.4',
-  'gemini-2.5-pro',
-] as const
+export const WARP_MODEL_SOURCE = 'chosen per conversation in the Warp UI; the launch has no model flag'
+export const WARP_MODELS = [] as const
 
 export const JUNIE_MODEL_SOURCE = 'curated Junie CLI model ids'
 export const JUNIE_MODELS = [
@@ -178,7 +162,5 @@ export const CURSOR_MODELS = [
   'claude-opus-4-8',
 ] as const
 
-export const ROVO_MODEL_SOURCE = 'curated Rovo Dev CLI model ids'
-export const ROVO_MODELS = [
-  'auto',
-] as const
+export const ROVO_MODEL_SOURCE = 'set in Rovo Dev itself (/models or agent.modelId in config); the launch has no model flag'
+export const ROVO_MODELS = [] as const
