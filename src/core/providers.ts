@@ -87,15 +87,21 @@ export function buildCommand(opts: BuildCommandOptions): string[] {
   return [def.bin, ...def.buildArgs({ permissions, model, auth_mode, effort }), ...extra_args]
 }
 
+// True when the binary resolves on PATH. Shared by the provider and the helper
+// tool catalogues so both availability reports use the same probe.
+export function binaryOnPath(bin: string): boolean {
+  try {
+    execFileSync('which', [bin], { stdio: 'pipe' })
+    return true
+  } catch {
+    return false
+  }
+}
+
 export function detectAvailable(): Record<Provider, boolean> {
   const result = {} as Record<Provider, boolean>
   for (const provider of PROVIDERS) {
-    try {
-      execFileSync('which', [BIN[provider]], { stdio: 'pipe' })
-      result[provider] = true
-    } catch {
-      result[provider] = false
-    }
+    result[provider] = binaryOnPath(BIN[provider])
   }
   return result
 }

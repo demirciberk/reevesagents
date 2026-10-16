@@ -14,6 +14,7 @@ import { registerSpawn, registerAdd, registerRuns, registerReap, registerOpen, r
 import { registerPeek, registerKill, registerSend, registerKey, registerInterrupt, registerDelete, registerAgents } from './agents.js'
 import { registerDeleteRun, registerHistory, registerDeleteHistory } from './history.js'
 import { registerProviders } from './providers.js'
+import { registerTools } from './tools.js'
 import { registerApprovals, registerApprove, registerDeny } from './approvals.js'
 import { registerSetup, registerSkills, registerDoctor } from './setup.js'
 import { registerHosts, registerAttach, registerDetach, registerMcp } from './hosts.js'
@@ -53,6 +54,7 @@ registerDeleteRun(program)
 registerHistory(program)
 registerDeleteHistory(program)
 registerProviders(program)
+registerTools(program)
 registerApprovals(program)
 registerApprove(program)
 registerDeny(program)

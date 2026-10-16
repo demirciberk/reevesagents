@@ -107,4 +107,13 @@ describe('doctor', () => {
     expect(check).toBeDefined()
     expect(['ok', 'warn']).toContain(check!.status)
   })
+
+  it('includes an informational tools check that never fails', async () => {
+    const { runDoctor } = await import('../src/core/doctor.js')
+    const check = runDoctor().checks.find(c => c.name === 'tools')
+    expect(check).toBeDefined()
+    expect(check!.status).toBe('ok') // missing tools narrow what agents can reach; they never fail the run
+    expect(check!.detail).toContain('Perplexity CLI')
+    expect(check!.detail).toMatch(/(installed|missing)/)
+  })
 })

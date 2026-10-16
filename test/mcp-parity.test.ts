@@ -299,6 +299,14 @@ describe('mcp parity tools', () => {
       }
     })
 
+    it('advertises the read-only list_tools catalogue tool', async () => {
+      const { MCP_TOOLS } = await import('../src/surfaces/mcp/server.js')
+      const names = MCP_TOOLS.map(tool => tool.name)
+      expect(names).toContain('list_tools')
+      const listTools = MCP_TOOLS.find(tool => tool.name === 'list_tools')!
+      expect(listTools.inputSchema.properties).toEqual({})
+    })
+
     it('reap returns a reaped array (empty when tmux is unavailable)', async () => {
       const result = payload(await call('reap', {}))
       expect(Array.isArray(result.reaped)).toBe(true)
