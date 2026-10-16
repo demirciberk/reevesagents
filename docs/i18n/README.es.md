@@ -20,10 +20,11 @@
 
 ReevesAgents es un espacio de trabajo local para CLIs de programación con IA.
 Ejecuta Claude Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Qwen, Pi, Aider,
-Gemini CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code y otras CLIs de
-proveedor lado a lado en tmux. Puedes usarlo como una CLI, TUI o
-Web UI normal, o adjuntar su MCP opcional para que un agente pueda generar, leer,
-dirigir y detener al resto.
+Gemini CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code, Mistral Vibe,
+Grok Build, Kiro CLI, Factory Droid, Qoder CLI, Warp, Junie CLI,
+GitHub Copilot CLI, Cursor CLI, Rovo Dev CLI y otras CLIs de proveedor lado a
+lado en tmux. Puedes usarlo como una CLI, TUI o Web UI normal, o adjuntar su MCP
+opcional para que un agente pueda generar, leer, dirigir y detener al resto.
 
 El inicio de sesión de cada proveedor se queda en su propia CLI. ReevesAgents guarda su estado
 en unos pocos archivos JSON bajo `~/.reeves` y solo se ejecuta mientras lo usas tú o una CLI

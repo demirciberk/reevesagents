@@ -10,7 +10,9 @@ that lives in the [online user guide](https://reevesagents.mertkayacs.com/docs/)
 
 - A free, local workspace where your AI coding agents (Claude Code, Codex,
   Hermes, DeepSeek, Kimi, Gemini CLI, Cline CLI, Crush, Goose, Kilo Code,
-  Letta Code, and more) work side by side on your machine.
+  Letta Code, Mistral Vibe, Grok Build, Kiro CLI, Factory Droid, Qoder CLI,
+  Warp, Junie CLI, GitHub Copilot CLI, Cursor CLI, Rovo Dev CLI, and more) work
+  side by side on your machine.
 - One agent can create and drive the others through the MCP. For example, a
   Claude Code session can run Codex and Claude Code agents on separate tasks.
 - You can also use ReevesAgents as a plain workspace: spawn the agents you want
@@ -29,7 +31,9 @@ that lives in the [online user guide](https://reevesagents.mertkayacs.com/docs/)
 - tmux 3.0 or newer.
 - At least one provider CLI installed and logged in: Claude Code, Codex,
   OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen, Aider, Gemini CLI, Cline CLI,
-  Crush, Goose, Kilo Code, or Letta Code.
+  Crush, Goose, Kilo Code, Letta Code, Mistral Vibe, Grok Build, Kiro CLI,
+  Factory Droid, Qoder CLI, Warp, Junie CLI, GitHub Copilot CLI, Cursor CLI, or
+  Rovo Dev CLI.
 
 ## Install and check
 

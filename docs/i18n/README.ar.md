@@ -18,12 +18,14 @@
 
 [English](../../README.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt.md) · [Italiano](README.it.md) · [Türkçe](README.tr.md) · [Русский](README.ru.md) · [简体中文](README.zh-Hans.md) · **العربية**
 
-ReevesAgents مساحة عمل محلية لأدوات CLI للبرمجة بالذكاء الاصطناعي. يشغّل Claude Code
-وCodex وOpenCode وHermes وKimi وDeepSeek وQwen وPi وAider وGemini CLI وCline CLI
-وCrush وGoose وKilo Code وLetta Code وغيرها من أدوات CLI
-للمزوّدين جنبًا إلى جنب داخل tmux. تستطيع استخدامه أداة CLI/TUI/Web UI عادية، أو
-ربط خادم MCP الاختياري الخاص به حتى يتمكن وكيل واحد من إنشاء البقية وقراءة
-مخرجاتهم وتوجيههم وإيقافهم.
+ReevesAgents مساحة عمل محلية لأدوات CLI للبرمجة بالذكاء الاصطناعي. يشغّل
+Claude Code وCodex وOpenCode وHermes وKimi وDeepSeek وQwen وPi وAider
+وGemini CLI وCline CLI وCrush وGoose وKilo Code وLetta Code وMistral Vibe
+وGrok Build وKiro CLI وFactory Droid وQoder CLI وWarp وJunie CLI
+وGitHub Copilot CLI وCursor CLI وRovo Dev CLI وغيرها من أدوات CLI للمزوّدين
+جنبًا إلى جنب داخل tmux. تستطيع استخدامه أداة CLI/TUI/Web UI عادية، أو ربط خادم
+MCP الاختياري الخاص به حتى يتمكن وكيل واحد من إنشاء البقية وقراءة مخرجاتهم
+وتوجيههم وإيقافهم.
 
 يبقى تسجيل الدخول إلى كل مزوّد داخل أداة CLI الخاصة به. ويحفظ ReevesAgents حالته
 في بضعة ملفات JSON صِرفة تحت `~/.reeves`، ولا يعمل إلا حين تستخدمه أنت أو أداة CLI

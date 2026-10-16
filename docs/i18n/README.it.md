@@ -19,11 +19,13 @@
 [English](../../README.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt.md) · **Italiano** · [Türkçe](README.tr.md) · [Русский](README.ru.md) · [简体中文](README.zh-Hans.md) · [العربية](README.ar.md)
 
 ReevesAgents è uno spazio di lavoro locale per le CLI di coding AI. Fa girare
-Claude Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Qwen, Pi, Aider, Gemini
-CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code e altre CLI di provider
-fianco a fianco in tmux. Puoi usarlo come una normale CLI/TUI/Web UI,
-oppure collegare il suo MCP opt-in, così un agente può avviare, leggere, dirigere e
-fermare gli altri.
+Claude Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Qwen, Pi, Aider,
+Gemini CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code, Mistral Vibe,
+Grok Build, Kiro CLI, Factory Droid, Qoder CLI, Warp, Junie CLI,
+GitHub Copilot CLI, Cursor CLI, Rovo Dev CLI e altre CLI di provider fianco a
+fianco in tmux. Puoi usarlo come una normale CLI/TUI/Web UI, oppure collegare il
+suo MCP opt-in, così un agente può avviare, leggere, dirigere e fermare gli
+altri.
 
 L'accesso di ogni provider resta nella sua CLI. ReevesAgents tiene il proprio stato in pochi
 file JSON sotto `~/.reeves` e resta attivo solo mentre lo usi tu o una CLI collegata.

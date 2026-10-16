@@ -20,10 +20,12 @@
 
 ReevesAgents, AI kodlama CLI'leri için yerel bir çalışma alanıdır. Claude Code,
 Codex, OpenCode, Hermes, Kimi, DeepSeek, Qwen, Pi, Aider, Gemini CLI, Cline CLI,
-Crush, Goose, Kilo Code, Letta Code ve diğer sağlayıcı CLI'lerini tmux içinde
-yan yana çalıştırır. Onu sıradan bir CLI/TUI/Web UI olarak
-kullanabilir ya da isteğe bağlı MCP'sini bağlayarak bir agent'ın geri kalanları
-başlatmasını, okumasını, yönlendirmesini ve durdurmasını sağlayabilirsiniz.
+Crush, Goose, Kilo Code, Letta Code, Mistral Vibe, Grok Build, Kiro CLI,
+Factory Droid, Qoder CLI, Warp, Junie CLI, GitHub Copilot CLI, Cursor CLI,
+Rovo Dev CLI ve diğer sağlayıcı CLI'lerini tmux içinde yan yana çalıştırır. Onu
+sıradan bir CLI/TUI/Web UI olarak kullanabilir ya da isteğe bağlı MCP'sini
+bağlayarak bir agent'ın geri kalanları başlatmasını, okumasını, yönlendirmesini
+ve durdurmasını sağlayabilirsiniz.
 
 Sağlayıcı girişi her sağlayıcı CLI'sinin kendi içinde kalır. ReevesAgents kendi durumunu
 `~/.reeves` altındaki birkaç düz JSON dosyasında tutar ve yalnızca siz ya da bağlı bir CLI

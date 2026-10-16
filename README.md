@@ -23,10 +23,12 @@ ReevesAgents is free and open source under the Apache-2.0 license.
 **English** · [Deutsch](docs/i18n/README.de.md) · [Français](docs/i18n/README.fr.md) · [Español](docs/i18n/README.es.md) · [Português](docs/i18n/README.pt.md) · [Italiano](docs/i18n/README.it.md) · [Türkçe](docs/i18n/README.tr.md) · [Русский](docs/i18n/README.ru.md) · [简体中文](docs/i18n/README.zh-Hans.md) · [العربية](docs/i18n/README.ar.md)
 
 ReevesAgents is a local workspace for AI coding CLIs. It runs Claude Code,
-Codex, OpenCode, Hermes, Kimi, DeepSeek, Qwen, Pi, Aider, Gemini CLI, Cline
-CLI, Crush, Goose, Kilo Code, Letta Code, and other provider CLIs side by
-side in tmux. You can use it as a normal CLI/TUI/Web UI, or attach
-its opt-in MCP so one agent can spawn, read, steer, and stop the rest.
+Codex, OpenCode, Hermes, Kimi, DeepSeek, Qwen, Pi, Aider, Gemini CLI, Cline CLI,
+Crush, Goose, Kilo Code, Letta Code, Mistral Vibe, Grok Build, Kiro CLI,
+Factory Droid, Qoder CLI, Warp, Junie CLI, GitHub Copilot CLI, Cursor CLI,
+Rovo Dev CLI, and other provider CLIs side by side in tmux. You can use it as a
+normal CLI/TUI/Web UI, or attach its opt-in MCP so one agent can spawn, read,
+steer, and stop the rest.
 
 Provider logins stay inside each provider CLI. ReevesAgents keeps its own state
 as a few plain JSON files under `~/.reeves`, and it runs only while you or an

@@ -10,7 +10,9 @@ e de cada opção, está tudo no [guia online](https://reevesagents.mertkayacs.c
 
 - Um espaço de trabalho livre e local onde os seus agentes de código de IA
   (Claude Code, Codex, Hermes, DeepSeek, Kimi, Gemini CLI, Cline CLI, Crush,
-  Goose, Kilo Code, Letta Code e outros) trabalham lado a lado na sua máquina.
+  Goose, Kilo Code, Letta Code, Mistral Vibe, Grok Build, Kiro CLI,
+  Factory Droid, Qoder CLI, Warp, Junie CLI, GitHub Copilot CLI, Cursor CLI,
+  Rovo Dev CLI e outros) trabalham lado a lado na sua máquina.
 - Um agente pode criar e conduzir os outros através do MCP. Por exemplo, uma
   sessão de Claude Code pode pôr agentes Codex e Claude Code a trabalhar em
   tarefas separadas.
@@ -29,9 +31,11 @@ e de cada opção, está tudo no [guia online](https://reevesagents.mertkayacs.c
 - macOS, Linux ou WSL (o Windows nativo não é o alvo; use WSL).
 - Node.js 20.19 ou mais recente.
 - tmux 3.0 ou mais recente.
-- Pelo menos uma CLI de fornecedor instalada e com sessão iniciada: Claude
-  Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen, Aider, Gemini CLI,
-  Cline CLI, Crush, Goose, Kilo Code ou Letta Code.
+- Pelo menos uma CLI de fornecedor instalada e com sessão iniciada: Claude Code,
+  Codex, OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen, Aider, Gemini CLI,
+  Cline CLI, Crush, Goose, Kilo Code, Letta Code, Mistral Vibe, Grok Build,
+  Kiro CLI, Factory Droid, Qoder CLI, Warp, Junie CLI, GitHub Copilot CLI,
+  Cursor CLI ou Rovo Dev CLI.
 
 ## Instalar e verificar
 

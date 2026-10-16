@@ -18,13 +18,14 @@
 
 [English](../../README.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt.md) · [Italiano](README.it.md) · [Türkçe](README.tr.md) · **Русский** · [简体中文](README.zh-Hans.md) · [العربية](README.ar.md)
 
-ReevesAgents: локальное рабочее пространство для AI CLI, которые пишут код.
-Он запускает Claude Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Qwen, Pi,
-Aider, Gemini CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code и CLI других
-провайдеров бок о бок в tmux. Им можно пользоваться как
-обычным CLI, TUI или Web UI, а можно подключить опциональный MCP, и тогда один
-агент сможет запускать остальных, читать их вывод, направлять их и
-останавливать.
+ReevesAgents: локальное рабочее пространство для AI CLI, которые пишут код. Он
+запускает Claude Code, Codex, OpenCode, Hermes, Kimi, DeepSeek, Qwen, Pi, Aider,
+Gemini CLI, Cline CLI, Crush, Goose, Kilo Code, Letta Code, Mistral Vibe,
+Grok Build, Kiro CLI, Factory Droid, Qoder CLI, Warp, Junie CLI,
+GitHub Copilot CLI, Cursor CLI, Rovo Dev CLI и CLI других провайдеров бок о бок
+в tmux. Им можно пользоваться как обычным CLI, TUI или Web UI, а можно
+подключить опциональный MCP, и тогда один агент сможет запускать остальных,
+читать их вывод, направлять их и останавливать.
 
 Вход в аккаунт каждого провайдера остаётся внутри его CLI. Своё состояние ReevesAgents хранит
 в нескольких простых JSON-файлах в `~/.reeves` и работает, только пока им пользуетесь вы или
