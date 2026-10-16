@@ -129,15 +129,21 @@ describe('store', () => {
         { nickname_template: 'pi-w', provider: 'pi', model: 'sonnet', auth_mode: 'default', effort: 'default', initial_prompt: 'pi prompt', working_dir: '/tmp', permissions: 'ask', rc_enabled: false },
         { nickname_template: 'qwen-w', provider: 'qwen', model: 'qwen3-coder-plus', auth_mode: 'default', effort: 'default', initial_prompt: 'qwen prompt', working_dir: '/tmp', permissions: 'skip', rc_enabled: false },
         { nickname_template: 'aider-w', provider: 'aider', model: 'deepseek/deepseek-chat', auth_mode: 'default', effort: 'default', initial_prompt: 'aider prompt', working_dir: '/tmp', permissions: 'skip', rc_enabled: false },
+        { nickname_template: 'gemini-w', provider: 'gemini', model: 'gemini-3.5-flash', auth_mode: 'default', effort: 'default', initial_prompt: 'gemini prompt', working_dir: '/tmp', permissions: 'skip', rc_enabled: false },
+        { nickname_template: 'cline-w', provider: 'cline', model: 'anthropic/claude-sonnet-4-6', auth_mode: 'default', effort: 'default', initial_prompt: 'cline prompt', working_dir: '/tmp', permissions: 'skip', rc_enabled: false },
+        { nickname_template: 'crush-w', provider: 'crush', model: '', auth_mode: 'default', effort: 'default', initial_prompt: 'crush prompt', working_dir: '/tmp', permissions: 'skip', rc_enabled: false },
+        { nickname_template: 'goose-w', provider: 'goose', model: 'claude-sonnet-4-6', auth_mode: 'default', effort: 'default', initial_prompt: 'goose prompt', working_dir: '/tmp', permissions: 'skip', rc_enabled: false },
+        { nickname_template: 'kilo-w', provider: 'kilo', model: 'kilo/~anthropic/claude-sonnet-latest', auth_mode: 'default', effort: 'default', initial_prompt: 'kilo prompt', working_dir: '/tmp', permissions: 'skip', rc_enabled: false },
+        { nickname_template: 'letta-w', provider: 'letta', model: 'zai-org/GLM-5.3-max', auth_mode: 'default', effort: 'default', initial_prompt: 'letta prompt', working_dir: '/tmp', permissions: 'skip', rc_enabled: false },
       ],
     })
     savePreset(tree)
     const loaded = loadPreset(testName)
-    expect(loaded?.workers).toHaveLength(9)
-    expect(loaded?.workers.map(w => w.provider)).toEqual(['cc', 'codex', 'opencode', 'hermes', 'kimi', 'deepseek', 'pi', 'qwen', 'aider'])
-    expect(loaded?.workers.map(w => w.nickname_template)).toEqual(['claude-w', 'codex-w', 'opencode-w', 'hermes-w', 'kimi-w', 'deepseek-w', 'pi-w', 'qwen-w', 'aider-w'])
-    expect(loaded?.workers.map(w => w.initial_prompt)).toEqual(['cc prompt', 'codex prompt', 'opencode prompt', 'hermes prompt', 'kimi prompt', 'deepseek prompt', 'pi prompt', 'qwen prompt', 'aider prompt'])
-    expect(loaded?.workers.map(w => w.model)).toEqual(['sonnet', 'gpt-5', 'pro', 'haiku', 'kimi-code/kimi-for-coding', 'deepseek-coder:6.7b', 'sonnet', 'qwen3-coder-plus', 'deepseek/deepseek-chat'])
+    expect(loaded?.workers).toHaveLength(15)
+    expect(loaded?.workers.map(w => w.provider)).toEqual(['cc', 'codex', 'opencode', 'hermes', 'kimi', 'deepseek', 'pi', 'qwen', 'aider', 'gemini', 'cline', 'crush', 'goose', 'kilo', 'letta'])
+    expect(loaded?.workers.map(w => w.nickname_template)).toEqual(['claude-w', 'codex-w', 'opencode-w', 'hermes-w', 'kimi-w', 'deepseek-w', 'pi-w', 'qwen-w', 'aider-w', 'gemini-w', 'cline-w', 'crush-w', 'goose-w', 'kilo-w', 'letta-w'])
+    expect(loaded?.workers.map(w => w.initial_prompt)).toEqual(['cc prompt', 'codex prompt', 'opencode prompt', 'hermes prompt', 'kimi prompt', 'deepseek prompt', 'pi prompt', 'qwen prompt', 'aider prompt', 'gemini prompt', 'cline prompt', 'crush prompt', 'goose prompt', 'kilo prompt', 'letta prompt'])
+    expect(loaded?.workers.map(w => w.model)).toEqual(['sonnet', 'gpt-5', 'pro', 'haiku', 'kimi-code/kimi-for-coding', 'deepseek-coder:6.7b', 'sonnet', 'qwen3-coder-plus', 'deepseek/deepseek-chat', 'gemini-3.5-flash', 'anthropic/claude-sonnet-4-6', '', 'claude-sonnet-4-6', 'kilo/~anthropic/claude-sonnet-latest', 'zai-org/GLM-5.3-max'])
     // permissions/rc per-worker should not leak between slots
     expect(loaded?.workers[2]?.permissions).toBe('skip')
     expect(loaded?.workers[0]?.rc_enabled).toBe(true)

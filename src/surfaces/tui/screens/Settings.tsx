@@ -29,6 +29,12 @@ const CONFIG_PATHS = {
   pi: '~/.pi',
   qwen: '~/.qwen/settings.json',
   aider: '~/.aider.conf.yml',
+  gemini: '~/.gemini/settings.json',
+  cline: '~/.cline',
+  crush: '~/.config/crush',
+  goose: '~/.config/goose/config.yaml',
+  kilo: '~/.config/kilo/kilo.json',
+  letta: '~/.letta/settings.json',
 }
 
 const PROVIDER_LABEL_WIDTH = Math.max(...PROVIDERS.map(provider => providerDisplayName(provider).length))

@@ -16,6 +16,12 @@ import {
   PI_MODELS, PI_MODEL_SOURCE,
   QWEN_MODELS, QWEN_MODEL_SOURCE,
   AIDER_MODELS, AIDER_MODEL_SOURCE,
+  GEMINI_MODELS, GEMINI_MODEL_SOURCE,
+  CLINE_MODELS, CLINE_MODEL_SOURCE,
+  CRUSH_MODELS, CRUSH_MODEL_SOURCE,
+  GOOSE_MODELS, GOOSE_MODEL_SOURCE,
+  KILO_MODELS, KILO_MODEL_SOURCE,
+  LETTA_MODELS, LETTA_MODEL_SOURCE,
 } from './model-data.js'
 
 // The user-chosen knobs that shape a launch. The provider is implicit: each entry
@@ -259,6 +265,126 @@ export const PROVIDER_REGISTRY: Record<Provider, ProviderDef> = {
     buildArgs: ({ permissions, model }) => {
       const args: string[] = []
       if (permissions === 'skip') args.push('--yes-always')
+      if (model) args.push('--model', model)
+      return args
+    },
+  },
+  gemini: {
+    id: 'gemini',
+    bin: 'gemini',
+    displayName: 'Gemini CLI',
+    color: '#8b7fe8', // muted blue-violet, the Gemini spark gradient
+    aliases: ['gemini', 'gemini cli', 'gemini-cli'],
+    models: GEMINI_MODELS,
+    modelSource: GEMINI_MODEL_SOURCE,
+    helpRequirements: [
+      { feature: 'model selection', tokens: ['--model'] },
+      { feature: 'skip permissions', tokens: ['--approval-mode'] },
+    ],
+    buildArgs: ({ permissions, model }) => {
+      const args: string[] = []
+      if (permissions === 'skip') args.push('--approval-mode', 'yolo')
+      if (model) args.push('--model', model)
+      return args
+    },
+  },
+  cline: {
+    id: 'cline',
+    bin: 'cline',
+    displayName: 'Cline CLI',
+    color: '#6b9fd6', // muted Cline blue
+    aliases: ['cline', 'cline cli', 'cline-cli'],
+    models: CLINE_MODELS,
+    modelSource: CLINE_MODEL_SOURCE,
+    helpRequirements: [
+      { feature: 'model selection', tokens: ['--model'] },
+      { feature: 'skip permissions', tokens: ['--auto-approve'] },
+    ],
+    buildArgs: ({ permissions, model }) => {
+      // --tui keeps the interactive session running; without it a prompt
+      // argument would run one turn and exit.
+      const args: string[] = ['--tui']
+      if (permissions === 'skip') args.push('--auto-approve', 'true')
+      if (model) args.push('--model', model)
+      return args
+    },
+  },
+  crush: {
+    id: 'crush',
+    bin: 'crush',
+    displayName: 'Crush',
+    color: '#e092b8', // muted Charm pink
+    aliases: ['crush', 'charm crush', 'charm-crush'],
+    models: CRUSH_MODELS,
+    modelSource: CRUSH_MODEL_SOURCE,
+    helpRequirements: [
+      { feature: 'skip permissions', tokens: ['--yolo'] },
+    ],
+    buildArgs: ({ permissions }) => {
+      // Interactive crush has no --model flag (model is picked in the TUI
+      // with /models), so the model knob is not passed to the launch.
+      const args: string[] = []
+      if (permissions === 'skip') args.push('--yolo')
+      return args
+    },
+  },
+  goose: {
+    id: 'goose',
+    bin: 'goose',
+    displayName: 'Goose',
+    color: '#b39a80', // muted goose tan
+    aliases: ['goose'],
+    models: GOOSE_MODELS,
+    modelSource: GOOSE_MODEL_SOURCE,
+    helpRequirements: [
+      { feature: 'interactive session', tokens: ['session'] },
+      { feature: 'model selection', tokens: ['--model'] },
+    ],
+    helpArgs: ['session', '--help'],
+    buildArgs: ({ model }) => {
+      // Auto-approval has no launch flag; goose reads GOOSE_MODE from its
+      // config (auto approves all tool actions), like opencode's entry.
+      const args: string[] = ['session']
+      if (model) args.push('--model', model)
+      return args
+    },
+  },
+  kilo: {
+    id: 'kilo',
+    bin: 'kilo',
+    displayName: 'Kilo Code',
+    color: '#c46f6f', // muted soft red
+    aliases: ['kilo', 'kilo code', 'kilo-code', 'kilocode'],
+    models: KILO_MODELS,
+    modelSource: KILO_MODEL_SOURCE,
+    helpRequirements: [
+      { feature: 'model selection', tokens: ['--model'] },
+      { feature: 'skip permissions', tokens: ['--auto'] },
+    ],
+    buildArgs: ({ permissions, model }) => {
+      const args: string[] = []
+      if (permissions === 'skip') args.push('--auto')
+      if (model) args.push('--model', model)
+      return args
+    },
+  },
+  letta: {
+    id: 'letta',
+    bin: 'letta',
+    displayName: 'Letta Code',
+    color: '#6fb387', // muted starling green
+    aliases: ['letta', 'letta code', 'letta-code'],
+    models: LETTA_MODELS,
+    modelSource: LETTA_MODEL_SOURCE,
+    helpRequirements: [
+      { feature: 'fresh conversation', tokens: ['--new'] },
+      { feature: 'model selection', tokens: ['--model'] },
+    ],
+    buildArgs: ({ permissions, model }) => {
+      // Bare letta resumes the last conversation for the project; --new always
+      // starts a fresh one so a new worker never inherits old context.
+      const args: string[] = ['--new']
+      if (permissions === 'skip') args.push('--permission-mode', 'unrestricted')
       if (model) args.push('--model', model)
       return args
     },

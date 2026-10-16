@@ -46,7 +46,9 @@ const PROVIDER_ALIASES: Record<string, Provider> = Object.fromEntries(
 )
 
 const HELP_INSPECT_TIMEOUT_MS = 3000
-const HELP_INSPECT_TOTAL_BUDGET_MS = 8000
+// Scales with the catalogue so every installed provider keeps its inspection
+// turn; small installs stay at the original 8s floor.
+const HELP_INSPECT_TOTAL_BUDGET_MS = Math.max(8000, PROVIDERS.length * 1500)
 
 export interface ProviderCompatibility {
   provider: Provider

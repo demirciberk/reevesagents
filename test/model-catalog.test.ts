@@ -28,6 +28,12 @@ describe('model catalog', () => {
     expect(MODEL_CATALOG.pi.models).toContain('sonnet')
     expect(MODEL_CATALOG.qwen.models).toContain('qwen3-coder-plus')
     expect(MODEL_CATALOG.aider.models).toContain('deepseek/deepseek-chat')
+    expect(MODEL_CATALOG.gemini.models).toEqual(['gemini-3.1-pro-preview', 'gemini-3.5-flash', 'gemini-3.1-flash-lite'])
+    expect(MODEL_CATALOG.cline.models).toContain('anthropic/claude-sonnet-4-6')
+    expect(MODEL_CATALOG.crush.models).toContain('anthropic/claude-sonnet-4-6')
+    expect(MODEL_CATALOG.goose.models).toContain('claude-sonnet-4-6')
+    expect(MODEL_CATALOG.kilo.models).toContain('kilo/~anthropic/claude-sonnet-latest')
+    expect(MODEL_CATALOG.letta.models).toContain('zai-org/GLM-5.3-max')
   })
 
   it('renders an empty model as the provider default label', () => {

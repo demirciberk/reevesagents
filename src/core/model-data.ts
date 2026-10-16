@@ -71,3 +71,46 @@ export const AIDER_MODELS = [
   'haiku',
   'deepseek/deepseek-chat',
 ] as const
+
+export const GEMINI_MODEL_SOURCE = 'curated Gemini CLI model ids'
+export const GEMINI_MODELS = [
+  'gemini-3.1-pro-preview',
+  'gemini-3.5-flash',
+  'gemini-3.1-flash-lite',
+] as const
+
+export const CLINE_MODEL_SOURCE = 'curated Cline CLI model ids'
+export const CLINE_MODELS = [
+  'anthropic/claude-sonnet-4-6',
+  'anthropic/claude-opus-4-8',
+  'google/gemini-3.1-pro',
+] as const
+
+export const CRUSH_MODEL_SOURCE = 'curated Crush model ids'
+export const CRUSH_MODELS = [
+  'anthropic/claude-sonnet-4-6',
+  'anthropic/claude-opus-4-8',
+  'gemini/gemini-3.5-flash',
+] as const
+
+export const GOOSE_MODEL_SOURCE = 'curated Goose model ids'
+export const GOOSE_MODELS = [
+  'claude-sonnet-4-6',
+  'claude-opus-4-8',
+  'deepseek-v4-pro',
+] as const
+
+export const KILO_MODEL_SOURCE = 'curated Kilo Code model ids'
+export const KILO_MODELS = [
+  'kilo/~anthropic/claude-sonnet-latest',
+  'kilo/~anthropic/claude-opus-latest',
+  'kilo/~google/gemini-pro-latest',
+  'kilo/~openai/gpt-sol-latest',
+] as const
+
+export const LETTA_MODEL_SOURCE = 'curated Letta Code model ids'
+export const LETTA_MODELS = [
+  'zai-org/GLM-5.3-max',
+  'moonshotai/Kimi-K2-Instruct',
+  'Qwen/Qwen3-Coder-480B-A35B-Instruct',
+] as const

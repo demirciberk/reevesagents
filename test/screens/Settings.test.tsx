@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { Router } from '../../src/surfaces/tui/router.js'
 import { loadConfig } from '../../src/core/config.js'
+import { PROVIDERS } from '../../src/core/providers.js'
 
 // Pin a tall viewport so Settings renders its full layout (all languages visible)
 // instead of the height-dependent compact window, which would scroll Türkçe off.
@@ -28,7 +29,9 @@ describe('Settings language switcher', () => {
       expect(lastFrame() ?? '').toContain('Language')
       expect(lastFrame() ?? '').toContain('🇹🇷 Türkçe')
 
-      for (let i = 0; i < 15; i++) {
+      // Walk past every provider row to Türkçe, the 7th language row.
+      const turkishRowIndex = PROVIDERS.length + 6
+      for (let i = 0; i < turkishRowIndex; i++) {
         stdin.write('\u001B[B')
         await waitForInput()
       }
