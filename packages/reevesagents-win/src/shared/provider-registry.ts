@@ -467,16 +467,13 @@ export const PROVIDER_REGISTRY: Record<Provider, ProviderDef> = {
     models: DROID_MODELS,
     modelSource: DROID_MODEL_SOURCE,
     helpRequirements: [
-      { feature: 'model selection', tokens: ['--model'] },
-      { feature: 'skip permissions', tokens: ['--skip-permissions-unsafe'] },
+      { feature: 'skip permissions', tokens: ['--auto'] },
     ],
-    helpArgs: ['exec', '--help'],
-    buildArgs: ({ permissions, model }) => {
-      // Both flags are global but only `droid exec --help` lists them (the
-      // top-level help hides them), which is why helpArgs inspects exec.
+    buildArgs: ({ permissions }) => {
+      // Interactive droid sets autonomy with --auto and has no model flag
+      // (--skip-permissions-unsafe and --model exist only on `droid exec`).
       const args: string[] = []
-      if (permissions === 'skip') args.push('--skip-permissions-unsafe')
-      if (model) args.push('--model', model)
+      if (permissions === 'skip') args.push('--auto', 'high')
       return args
     },
   },

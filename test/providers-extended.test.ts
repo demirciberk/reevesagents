@@ -253,12 +253,13 @@ describe('buildCommand: extended providers', () => {
       expect(buildCommand({ provider: 'droid', permissions: 'ask', model: '' })).toEqual(['droid'])
     })
 
-    it('skip permissions uses --skip-permissions-unsafe', () => {
-      expect(buildCommand({ provider: 'droid', permissions: 'skip', model: '' })).toEqual(['droid', '--skip-permissions-unsafe'])
+    it('skip permissions sets autonomy high with --auto and never passes a model', () => {
+      expect(buildCommand({ provider: 'droid', permissions: 'skip', model: '' })).toEqual(['droid', '--auto', 'high'])
+      expect(buildCommand({ provider: 'droid', permissions: 'skip', model: 'gpt-6-sol' })).toEqual(['droid', '--auto', 'high'])
     })
 
-    it('includes --model when set', () => {
-      expect(buildCommand({ provider: 'droid', permissions: 'ask', model: 'gpt-6-sol' })).toEqual(['droid', '--model', 'gpt-6-sol'])
+    it('has no launch model flag, so the model knob adds nothing', () => {
+      expect(buildCommand({ provider: 'droid', permissions: 'ask', model: 'gpt-6-sol' })).toEqual(buildCommand({ provider: 'droid', permissions: 'ask', model: '' }))
     })
   })
 
