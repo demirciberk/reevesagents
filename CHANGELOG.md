@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.0](https://github.com/mertkayacs/reevesagents/compare/v1.9.1...v2.0.0) (2026-10-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* reevesagents now needs Node.js 22.12 or later. Node 20 reached end of life in April 2026, and commander 15 and ink 8 no longer support it.
+
+### Features
+
+* require Node.js 22.12 or later ([#165](https://github.com/mertkayacs/reevesagents/issues/165)) ([30a8e22](https://github.com/mertkayacs/reevesagents/commit/30a8e22a755439836e09841304fcaa7a137e862c))
+
+
+### Bug Fixes
+
+* **deps:** update dependency commander to v15 ([#160](https://github.com/mertkayacs/reevesagents/issues/160)) ([492352f](https://github.com/mertkayacs/reevesagents/commit/492352fc564d5524b124a9bfcd6518008af012fd))
+* **deps:** update dependency ink to v8 ([#161](https://github.com/mertkayacs/reevesagents/issues/161)) ([4647f15](https://github.com/mertkayacs/reevesagents/commit/4647f15ba7f0ea139ddb77d50f68354a462ddba2))
+
 ## [1.9.1](https://github.com/mertkayacs/reevesagents/compare/v1.9.0...v1.9.1) (2026-10-17)
 
 
