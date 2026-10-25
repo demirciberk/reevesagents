@@ -32,7 +32,7 @@ When a host CLI uses the MCP to spawn agents, ReevesAgents records one run:
 
 - the host CLI appears as the run head when ReevesAgents can identify it
 - spawned agents follow as workers
-- windowed agents run in tmux windows
+- windowed agents run in tmux windows (on native Windows through the built-in winmux multiplexer, tmux-compatible)
 - an external host CLI can be recorded as a headless head, since ReevesAgents
   does not own its terminal
 

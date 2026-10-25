@@ -56,11 +56,11 @@ describe('doctor', () => {
     expect(result.checks.find(c => c.name === 'platform')).toBeDefined()
   })
 
-  it('reports native Windows as unsupported', async () => {
+  it('reports native Windows as supported through winmux', async () => {
     const { platformSupportCheck } = await import('../src/core/doctor.js')
     const check = platformSupportCheck('win32', {}, '')
-    expect(check.status).toBe('fail')
-    expect(check.detail).toContain('WSL')
+    expect(check.status).toBe('ok')
+    expect(check.detail).toContain('winmux')
   })
 
   it('reports Linux and WSL as supported', async () => {

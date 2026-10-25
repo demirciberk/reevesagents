@@ -5,11 +5,10 @@
 // The CLI `tools` command, the MCP list_tools tool, and the doctor tools check
 // all derive from this map, so adding a tool is one entry here.
 
-import { spawnSync } from 'node:child_process'
 import { statSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { isAbsolute, join } from 'node:path'
-import { binaryOnPath } from './providers.js'
+import { binaryOnPath, spawnCliSync } from './providers.js'
 
 export type Tool = 'pplx' | 'colab' | 'hf' | 'ollama'
 
@@ -149,7 +148,7 @@ export function toolState(def: ToolDef, env: Record<string, string | undefined> 
   if (def.authEnv.some(name => Boolean(env[name]))) return 'yes'
   if (!def.authCheckArgs) return 'unknown'
   try {
-    const checked = spawnSync(def.bin, [...def.authCheckArgs], {
+    const checked = spawnCliSync(def.bin, [...def.authCheckArgs], {
       stdio: 'ignore',
       timeout: TOOL_AUTH_CHECK_TIMEOUT_MS,
     })
