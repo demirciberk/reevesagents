@@ -91,7 +91,7 @@ export function buildCommand(opts: BuildCommandOptions): string[] {
 // tool catalogues so both availability reports use the same probe.
 export function binaryOnPath(bin: string, platform = process.platform): boolean {
   try {
-    execFileSync(platform === 'win32' ? 'where' : 'which', [bin], { stdio: 'pipe' })
+    execFileSync(platform === 'win32' ? 'where' : 'which', [bin], { stdio: 'pipe', windowsHide: true })
     return true
   } catch {
     return false
@@ -125,6 +125,7 @@ export function resolveCliPath(bin: string): string | null {
     const out = execFileSync(process.platform === 'win32' ? 'where' : 'which', [bin], {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
+      windowsHide: true,
     })
     const candidates = out.trim().split(/\r?\n/).filter(Boolean)
     return (candidates.find(c => /\.(cmd|bat|exe)$/i.test(c)) ?? candidates[0]) ?? null
@@ -144,6 +145,7 @@ export function spawnCliSync(
   platform = process.platform,
 ): ReturnType<typeof spawnSync> {
   if (platform !== 'win32') return spawnSync(bin, args, options)
+  options = { windowsHide: true, ...options }
   // npm-installed CLIs on Windows are .cmd shims, which a shell-less spawnSync
   // cannot run. Resolve the real path; run shims through the shell with each
   // argument safely quoted, real executables directly with no shell.

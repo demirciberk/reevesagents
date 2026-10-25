@@ -26,7 +26,7 @@ export function openBrowser(url: string): void {
   const command = browserOpenCommand(url)
   if (!command) return
   try {
-    const child = spawn(command.cmd, command.args, { detached: true, stdio: 'ignore' })
+    const child = spawn(command.cmd, command.args, { detached: true, stdio: 'ignore', windowsHide: true })
     child.on('error', () => { /* opener missing; URL was printed */ })
     child.unref()
   } catch {

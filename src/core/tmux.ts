@@ -48,12 +48,12 @@ export function tmuxCommand(platform = process.platform): { file: string; prefix
 
 export function execTmux(args: string[], options: Omit<ExecFileSyncOptions, 'encoding'> & { encoding?: 'utf8' } = {}): string {
   const cmd = tmuxCommand()
-  return execFileSync(cmd.file, [...cmd.prefix, ...args], { encoding: 'utf8', ...options }) as string
+  return execFileSync(cmd.file, [...cmd.prefix, ...args], { encoding: 'utf8', windowsHide: true, ...options }) as string
 }
 
 export function spawnTmux(args: string[], options: SpawnSyncOptions = {}): ReturnType<typeof spawnSync> {
   const cmd = tmuxCommand()
-  return spawnSync(cmd.file, [...cmd.prefix, ...args], options)
+  return spawnSync(cmd.file, [...cmd.prefix, ...args], { windowsHide: true, ...options })
 }
 
 // Injectable seam for everything that shells out to tmux with pacing. Tests
@@ -96,7 +96,7 @@ export function tmuxAvailable(platform = process.platform): boolean {
   }
   try {
     const cmd = tmuxCommand(platform)
-    const result = spawnSync(cmd.file, [...cmd.prefix, '-V'], { stdio: 'ignore' })
+    const result = spawnSync(cmd.file, [...cmd.prefix, '-V'], { stdio: 'ignore', windowsHide: true })
     return result.status === 0
   } catch {
     return false

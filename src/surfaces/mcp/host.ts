@@ -76,7 +76,7 @@ function readParentArgv(ppid: number): string[] {
         '-NoProfile',
         '-Command',
         `(Get-CimInstance Win32_Process -Filter "ProcessId=${ppid}").CommandLine`,
-      ], { encoding: 'utf8', timeout: 5000 })
+      ], { encoding: 'utf8', timeout: 5000, windowsHide: true })
       return splitWindowsCommandLine(raw.trim()).filter(Boolean)
     } catch {
       return []

@@ -27,7 +27,7 @@ export function processAlive(pid: number): boolean {
 // win32: negative pids are invalid there; kill the whole tree with taskkill.
 function signalProcessGroup(pid: number, signal: 'SIGTERM' | 'SIGKILL'): void {
   if (process.platform === 'win32') {
-    spawnSync('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore' })
+    spawnSync('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore', windowsHide: true })
     return
   }
   try {

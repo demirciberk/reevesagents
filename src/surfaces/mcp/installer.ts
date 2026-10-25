@@ -111,6 +111,7 @@ function isKimiCode(bin: string): boolean {
       encoding: 'utf8',
       timeout: STATUS_TIMEOUT_MS,
       stdio: ['ignore', 'pipe', 'pipe'],
+      windowsHide: true,
     }).trim()
     return out !== '' && !/^kimi,/i.test(out)
   } catch {
@@ -190,7 +191,7 @@ export function resolveLaunchCmd(entry: string | undefined = process.argv[1]): L
   }
   try {
     const lookup = process.platform === 'win32' ? 'where' : 'which'
-    const abs = (execFileSync(lookup, [SERVER_BIN], { encoding: 'utf8' }).split(/\r?\n/)[0] ?? '').trim()
+    const abs = (execFileSync(lookup, [SERVER_BIN], { encoding: 'utf8', windowsHide: true }).split(/\r?\n/)[0] ?? '').trim()
     if (abs) return { command: abs, args: [SERVER_ARG] }
   } catch {
     // fall through to the bare name
@@ -297,7 +298,7 @@ export interface AttachResult {
 function isInstalled(bin: string): boolean {
   try {
     // Assumes `where`/`which` is on PATH (holds on a normal dev/user machine).
-    execFileSync(process.platform === 'win32' ? 'where' : 'which', [bin], { stdio: 'pipe' })
+    execFileSync(process.platform === 'win32' ? 'where' : 'which', [bin], { stdio: 'pipe', windowsHide: true })
     return true
   } catch {
     return false
@@ -312,6 +313,7 @@ function isAttached(host: HostCli): boolean {
       encoding: 'utf8',
       timeout: STATUS_TIMEOUT_MS,
       stdio: ['ignore', 'pipe', 'pipe'],
+      windowsHide: true,
     })
     // Match the reevesagents name as a whole token, so a differently-named
     // sibling (e.g. reevesagents-foo) is never miscounted as attached.
@@ -326,6 +328,7 @@ function runHostCommand(host: HostCli, args: string[]): void {
     encoding: 'utf8',
     timeout: MGMT_TIMEOUT_MS,
     stdio: ['ignore', 'pipe', 'pipe'],
+    windowsHide: true,
   })
 }
 

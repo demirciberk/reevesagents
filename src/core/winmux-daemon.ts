@@ -10,7 +10,7 @@ import xtermHeadlessModule from '@xterm/headless'
 // CJS package: named import breaks under ESM interop
 const { Terminal } = xtermHeadlessModule
 import { randomBytes } from 'node:crypto'
-import { spawnSync } from 'node:child_process'
+import childProcess, { spawnSync, type ForkOptions } from 'node:child_process'
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import {
@@ -117,7 +117,8 @@ function fmtContext(session: WMSession | null, window: WMWindow | null, paneId: 
 
 function killTree(pid: number): void {
   if (!pid || pid <= 0) return // node-pty in this env can report pid 0
-  try { spawnSync('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore' }) } catch { /* gone */ }
+  // windowsHide: the daemon has no console, so an unhidden console child pops a visible terminal window
+  try { spawnSync('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore', windowsHide: true }) } catch { /* gone */ }
 }
 
 function closePane(pane: Pane): void {
@@ -622,9 +623,24 @@ type PtyModule = typeof import('@lydell/node-pty')
 // Dynamic import, not static: in the bundled dist the static CJS interop keeps
 // the ConPTY read stream silent (verified empirically); dynamic resolves fine.
 async function loadNodePty(): Promise<PtyModule> {
+  hideForkedConsoles()
   const m = await import('@lydell/node-pty')
   const cand = m as unknown as { default?: unknown }
   return ((cand.default && typeof (cand.default as { spawn?: unknown }).spawn === 'function') ? cand.default : m) as PtyModule
+}
+
+// The daemon is detached, so it has no console. node-pty forks its
+// conpty_console_list_agent helper on every pane kill without windowsHide; a
+// console child of a console-less parent gets a fresh visible window (a Windows
+// Terminal pop-up). node-pty reads child_process.fork at call time, so default
+// windowsHide on the shared builtin.
+export function hideForkedConsoles(): void {
+  const fork = childProcess.fork
+  childProcess.fork = ((modulePath: string, args?: readonly string[] | ForkOptions, options?: ForkOptions) => {
+    // fork(modulePath, options) skips args; keep both overloads working
+    if (args && !Array.isArray(args)) { options = args as ForkOptions; args = undefined }
+    return fork(modulePath, (args ?? []) as readonly string[], { windowsHide: true, ...options })
+  }) as typeof childProcess.fork
 }
 
 // Probe a named pipe by connecting; a working connection means a daemon is
