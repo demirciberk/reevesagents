@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process'
 const required = new Set([
   'dist/cli.js',
   'dist/index.js',
+  'dist/winmux.js',
   'package.json',
   'README.md',
   'CHANGELOG.md',
