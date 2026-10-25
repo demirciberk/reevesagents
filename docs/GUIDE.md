@@ -26,9 +26,9 @@ that lives in the [online user guide](https://reevesagents.mertkayacs.com/docs/)
 
 ## Before you start
 
-- macOS, Linux, or WSL (native Windows is not the target; use WSL).
+- macOS, Linux, or Windows 10 1809+ (native Windows is supported through the built-in winmux (ConPTY) runtime; WSL also works).
 - Node.js 22.12 or newer.
-- tmux 3.0 or newer.
+- tmux 3.0 or newer (not needed on native Windows; winmux ships with reevesagents).
 - At least one provider CLI installed and logged in: Claude Code, Codex,
   OpenCode, Hermes, Kimi, DeepSeek, Pi, Qwen, Aider, Gemini CLI, Cline CLI,
   Crush, Goose, Kilo Code, Letta Code, Mistral Vibe, Grok Build, Kiro CLI,

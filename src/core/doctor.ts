@@ -8,7 +8,7 @@ import type { CheckResult, Provider } from './types.js'
 import { detectAvailable, inspectProviderCompatibility } from './providers.js'
 import { detectToolStatuses } from './tool-registry.js'
 import { listRuns, runsDir, stateRoot } from './runs.js'
-import { tmuxVersion } from './tmux.js'
+import { tmuxVersion, tmuxAvailable } from './tmux.js'
 import { WEB_EXTRA_MODULES } from '../surfaces/webui/extras.js'
 import { providerDisplayName } from '../utils/display.js'
 import { resolveLaunchCmd } from '../surfaces/mcp/installer.js'
@@ -78,8 +78,8 @@ export function platformSupportCheck(
   if (platform === 'win32') {
     return {
       name: 'platform',
-      status: 'fail',
-      detail: 'native Windows unsupported; use WSL with tmux and provider CLIs installed inside WSL',
+      status: 'ok',
+      detail: 'Windows supported via the built-in winmux (ConPTY) multiplexer',
     }
   }
   return {
@@ -89,7 +89,23 @@ export function platformSupportCheck(
   }
 }
 
-export function checkTmux(): CheckResult {
+export function checkTmux(platform = process.platform): CheckResult {
+  if (platform === 'win32') {
+    const versionStr = tmuxVersion()
+    if (!versionStr || !tmuxAvailable(platform)) {
+      return {
+        name: 'tmux',
+        status: 'fail',
+        detail: 'winmux not found; reinstall reevesagents so the optional @lydell/node-pty and @xterm/headless packages install',
+      }
+    }
+    const match = versionStr.match(/tmux (\d+)\.(\d+)/)
+    return {
+      name: 'tmux',
+      status: 'ok',
+      detail: `winmux (tmux ${match ? `${match[1]}.${match[2]}` : '3.x'} compatible, ConPTY)`,
+    }
+  }
   const versionStr = tmuxVersion()
   if (!versionStr) return { name: 'tmux', status: 'fail', detail: 'not on PATH' }
   const match = versionStr.match(/tmux (\d+)\.(\d+)/)

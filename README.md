@@ -79,6 +79,14 @@ reevesagents hosts
 
 Restart that CLI after attach so it loads the MCP tools.
 
+## Windows
+
+Native Windows 10 1809+ needs no WSL: reevesagents ships a built-in, tmux-compatible
+multiplexer (winmux) that runs panes over ConPTY. Agents keep running after you close
+the UI because winmux runs as a background server, just like tmux. When you attach in
+the TUI or CLI, the usual prefix keys work: Ctrl-b d to detach, Ctrl-b n / p to move
+between agent windows, Ctrl-b 0-9 to jump to a window.
+
 ## What It Gives You
 
 | Surface | Use it for |

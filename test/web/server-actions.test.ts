@@ -19,6 +19,7 @@ let tmpDir: string
 let handles: WebServerHandle[]
 let originalPath: string | undefined
 let originalConfig: string | undefined
+let originalWinmuxEntry: string | undefined
 
 beforeEach(() => {
   tmpDir = mkdtempSync(join(tmpdir(), 'reeves-web-actions-'))
@@ -27,6 +28,12 @@ beforeEach(() => {
   process.env.REEVES_REGISTRY = tmpDir
   process.env.REEVES_CONFIG = join(tmpDir, 'config.json')
   handles = []
+  // On Windows the POSIX `tmux` shim below cannot execute; point tmuxAvailable()
+  // at a missing winmux entry so it reports unavailable exactly like no-tmux POSIX.
+  if (process.platform === 'win32') {
+    originalWinmuxEntry = process.env.REEVES_WINMUX_ENTRY
+    process.env.REEVES_WINMUX_ENTRY = join(tmpDir, 'no-winmux-here.js')
+  }
 })
 
 afterEach(async () => {
@@ -37,6 +44,10 @@ afterEach(async () => {
   if (originalPath === undefined) delete process.env.PATH
   else process.env.PATH = originalPath
   delete process.env.REEVES_FAKE_TMUX_COUNTER
+  if (process.platform === 'win32') {
+    if (originalWinmuxEntry === undefined) delete process.env.REEVES_WINMUX_ENTRY
+    else process.env.REEVES_WINMUX_ENTRY = originalWinmuxEntry
+  }
   rmSync(tmpDir, { recursive: true, force: true })
 })
 
